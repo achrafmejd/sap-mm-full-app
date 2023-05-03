@@ -1,0 +1,20 @@
+.objectAttributeTitle{
+   margin-top: 0.3em;
+}
+
+
+.objectIdentifier .sapMText{
+    font-size: 11px;
+}
+
+.objectStatus{
+    margin-top: 0.3em;
+}
+.objectStatus .sapMObjStatusText {
+    /* width: 10px !important; */
+    font-size: 12px;
+}
+
+.messageStrip {
+    margin: 1em 0 1em 0;
+}
