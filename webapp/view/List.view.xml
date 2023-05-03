@@ -8,13 +8,15 @@
     <semantic:SemanticPage
         id="listPage"
         preserveHeaderStateOnScroll="true"
-        toggleHeaderOnTitleClick="false">
-        <semantic:titleHeading>
-            <Title
-                id="listPageTitle"
-                text="{listView>/title}"
-                level="H2"/>
-        </semantic:titleHeading>
+        toggleHeaderOnTitleClick="false"
+        >
+        <!-- Title Heading-->
+		<semantic:titleHeading>
+			<Title id="_IDGenTitle1" text="Selection d'Articles" />
+		</semantic:titleHeading>
+        <semantic:headerContent>
+            <Button id="backButton" text="Accueil" press="onNavigateToHome" type="Back" />
+        </semantic:headerContent>
         <semantic:content>
             <!-- For client side filtering add this to the items attribute: parameters: {operationMode: 'Client'}}" -->
             <List

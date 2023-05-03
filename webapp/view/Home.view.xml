@@ -4,6 +4,7 @@
     xmlns:semantic="sap.f.semantic"
     xmlns:layout="sap.ui.layout"
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns:microchart="sap.suite.ui.microchart"
         >
 
     <Page id="_HomePage">
@@ -16,7 +17,7 @@
 				class="sapUiTinyMarginBegin"/>  
 
 			<layout:HorizontalLayout id="_IDGenHorizontalLayout1" allowWrapping="true">
-            	<GenericTile id="_IDGenGenericTile1" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Fournisseurs" 
+            	<!-- <GenericTile id="_IDGenGenericTile1" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Fournisseurs" 
                     subheader="Gerez vos fournisseurs" press="onNavigateToVendors">
                     <TileContent id="_IDGenTileContent1" unit="" footer="">
                         <ImageContent id="_IDGenImageContent1" src="sap-icon://inventory" />
@@ -27,13 +28,32 @@
                     <TileContent id="_IDGenTileContent2" unit="" footer="">
                         <ImageContent id="_IDGenImageContent2" src="sap-icon://sales-order"  />
                     </TileContent>
-                </GenericTile>
-                <GenericTile id="_IDGenGenericTile3" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Articles"
+                </GenericTile> -->
+
+                <!-- Article Tile - START -->
+                <GenericTile id="_IDGenGenericTileArticle" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Articles"
                     subheader="Passez votre commande" press="onNavigateToArticles">
                     <TileContent id="_IDGenTileContent3" unit="" footer="">
                         <ImageContent id="_IDGenImageContent3" src="sap-icon://product" />
                     </TileContent>
                 </GenericTile>
+                <!-- Article Tile - END -->
+
+                <!-- DA Tile - START -->
+                <GenericTile id="_IDGenGenericTileDA" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Demande d'Achat" subheader="" press="onNavigateToDAPage" >
+					<TileContent id="_IDGenTileContent8" >
+						<content>
+							<microchart:ComparisonMicroChart id="_IDGenComparisonMicroChart2" scale="%" size="Responsive" >
+								<microchart:data>
+									<microchart:ComparisonMicroChartData id="_IDGenComparisonMicroChartData4" title="Validée" value="80" color="Good" />
+									<microchart:ComparisonMicroChartData id="_IDGenComparisonMicroChartData5" title="En cours" value="10" color="Critical" />
+								</microchart:data>
+							</microchart:ComparisonMicroChart>
+						</content>
+					</TileContent>
+				</GenericTile>
+                <!-- DA Tile - END -->
+
 			</layout:HorizontalLayout>
 
 

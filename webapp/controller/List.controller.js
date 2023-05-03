@@ -116,6 +116,14 @@ sap.ui.define([
               }
             })
         },
+        onNavigateToHome: function(){
+            const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            if (oRouter) {
+                oRouter.navTo("home");
+            } else {
+                alert("Error in routing : Navigation TO DA !\nCheck console");
+            }
+        },
         onCommander: function () {
             console.log("OK");
             var list = this.getView().byId("list");

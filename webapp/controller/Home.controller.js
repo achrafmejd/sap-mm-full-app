@@ -8,6 +8,14 @@ sap.ui.define([
 
         onInit : function () {
             
+        },
+        onNavigateToArticles: function(){
+            const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            if (oRouter) {
+                oRouter.navTo("list");
+            } else {
+                alert("Error in routing : Navigation TO DA !\nCheck console");
+            }
         }
 
     });
