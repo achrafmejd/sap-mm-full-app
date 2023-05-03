@@ -74,7 +74,6 @@
                             icon="sap-icon://cart-full"
                             text="Commander"
                             press=".onCommander"
-                            enabled="false"
                             type="Neutral"/>
 
                     </OverflowToolbar>

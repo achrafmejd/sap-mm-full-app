@@ -287,25 +287,6 @@ sap.ui.define([
                 oBinding.filter(aFilter);
 
             }
-
-            // if (oEvent.getParameters().refreshButtonPressed) {
-            //     // Search field's 'refresh' button has been pressed.
-            //     // This is visible if you select any list item.
-            //     // In this case no new search is triggered, we only
-            //     // refresh the list binding.
-            //     this.onRefresh();
-            //     return;
-            // }
-
-            // var sQuery = oEvent.getParameter("query");
-
-            // if (sQuery) {
-            //     this._oListFilterState.aSearch = [new Filter("CodeArticle", FilterOperator.Contains, sQuery)];
-            // } else {
-            //     this._oListFilterState.aSearch = [];
-            // }
-            // this._applyFilterSearch();
-
         },
 
         /**
@@ -420,11 +401,16 @@ sap.ui.define([
         onSelectionChange: function (oEvent) {
             var oList = oEvent.getSource(),
                 bSelected = oEvent.getParameter("selected");
-
+                console.log('onSelectionChange');
+                
+                console.log(bSelected);
+                
+                
             // skip navigation when deselecting an item in multi selection mode
             if (!(!oList.getMode() === "MultiSelect" && !bSelected)) {
                 // get the list item, either from the listItem parameter or from the event's source itself (will depend on the device-dependent mode).
                 this._showDetail(oEvent.getParameter("listItem") || oEvent.getSource());
+                // this.getView().byId('commButton').setEnabled(true)
             }
         },
         /**
