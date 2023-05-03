@@ -1,0 +1,44 @@
+<mvc:View xmlns:f="sap.f"
+    controllerName="commandearticle.controller.Home"
+    xmlns="sap.m"
+    xmlns:semantic="sap.f.semantic"
+    xmlns:layout="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+        >
+
+    <Page id="_HomePage">
+    <!-- <Text id="_IDGenText1" text="HELLO"></Text> -->
+		<layout:VerticalLayout id="_IDGenVerticalLayout1" class="sapUiResponsiveMargin">
+            <!-- Quick Navigation Meny - Start -->
+			<Title id="_IDGenTitle1"
+				titleStyle="H5"
+				text="Navigation rapide"
+				class="sapUiTinyMarginBegin"/>  
+
+			<layout:HorizontalLayout id="_IDGenHorizontalLayout1" allowWrapping="true">
+            	<GenericTile id="_IDGenGenericTile1" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Fournisseurs" 
+                    subheader="Gerez vos fournisseurs" press="onNavigateToVendors">
+                    <TileContent id="_IDGenTileContent1" unit="" footer="">
+                        <ImageContent id="_IDGenImageContent1" src="sap-icon://inventory" />
+                    </TileContent>
+                </GenericTile>
+                <GenericTile id="_IDGenGenericTile2" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Commandes"
+                    subheader="Consultez vos commandes" press="onTest">
+                    <TileContent id="_IDGenTileContent2" unit="" footer="">
+                        <ImageContent id="_IDGenImageContent2" src="sap-icon://sales-order"  />
+                    </TileContent>
+                </GenericTile>
+                <GenericTile id="_IDGenGenericTile3" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Articles"
+                    subheader="Passez votre commande" press="onNavigateToArticles">
+                    <TileContent id="_IDGenTileContent3" unit="" footer="">
+                        <ImageContent id="_IDGenImageContent3" src="sap-icon://product" />
+                    </TileContent>
+                </GenericTile>
+			</layout:HorizontalLayout>
+
+
+		</layout:VerticalLayout>
+
+    </Page>
+
+</mvc:View>
