@@ -269,23 +269,42 @@ sap.ui.define([
          * @public
          */
         onSearch: function (oEvent) {
-            if (oEvent.getParameters().refreshButtonPressed) {
-                // Search field's 'refresh' button has been pressed.
-                // This is visible if you select any list item.
-                // In this case no new search is triggered, we only
-                // refresh the list binding.
-                this.onRefresh();
-                return;
+
+            // console.log(oEvent.getParameter("query"));
+            console.log(oEvent.getSource().getValue());
+
+            if(oEvent){
+                const aFilter = [];
+                const sQuery = oEvent.getSource().getValue();
+    
+                console.log("Query p :", sQuery);
+                if (sQuery && sQuery.length > 0) {
+                    aFilter.push(new Filter("Designation", FilterOperator.Contains, sQuery));
+                }
+    
+                var oTable = this.byId("list");
+                var oBinding = oTable.getBinding("items");
+                oBinding.filter(aFilter);
+
             }
 
-            var sQuery = oEvent.getParameter("query");
+            // if (oEvent.getParameters().refreshButtonPressed) {
+            //     // Search field's 'refresh' button has been pressed.
+            //     // This is visible if you select any list item.
+            //     // In this case no new search is triggered, we only
+            //     // refresh the list binding.
+            //     this.onRefresh();
+            //     return;
+            // }
 
-            if (sQuery) {
-                this._oListFilterState.aSearch = [new Filter("CodeArticle", FilterOperator.Contains, sQuery)];
-            } else {
-                this._oListFilterState.aSearch = [];
-            }
-            this._applyFilterSearch();
+            // var sQuery = oEvent.getParameter("query");
+
+            // if (sQuery) {
+            //     this._oListFilterState.aSearch = [new Filter("CodeArticle", FilterOperator.Contains, sQuery)];
+            // } else {
+            //     this._oListFilterState.aSearch = [];
+            // }
+            // this._applyFilterSearch();
 
         },
 
