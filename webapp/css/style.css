@@ -18,3 +18,8 @@
 .messageStrip {
     margin: 1em 0 1em 0;
 }
+
+/* Overriding */
+.sapUiLargeMarginBegin {
+    margin-left: 1rem !important;
+}
