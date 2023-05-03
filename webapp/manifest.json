@@ -78,7 +78,10 @@
     "resources": {
       "css": [
           {
-            "uri": "css/commande_article.css"
+            "uri": "css/commande_ael_article.css"
+          },
+          {
+            "uri": "css/demande_ame_project.css"
           }
       ]
     },
@@ -114,6 +117,20 @@
             "list",
             "object"
           ]
+        },
+        {
+          "name": "RouteDA",
+          "pattern": "DA",
+          "target": [
+            "TargetDA"
+          ]
+        },
+        {
+          "name": "RouteDASingle",
+          "pattern": "DASingle/{object}",
+          "target": [
+            "TargetDASingle"
+          ]
         }
       ],
       "targets": {
@@ -141,6 +158,20 @@
         "notFound": {
           "viewName": "NotFound",
           "viewId": "notFound"
+        },
+        "TargetDA": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "DA",
+          "viewName": "DA"
+        },
+        "TargetDASingle": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "DASingle",
+          "viewName": "DASingle"
         }
       }
     },

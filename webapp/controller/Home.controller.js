@@ -16,6 +16,14 @@ sap.ui.define([
             } else {
                 alert("Error in routing : Navigation TO DA !\nCheck console");
             }
+        },
+        onNavigateToDAPage: function(){
+            const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            if (oRouter) {
+                oRouter.navTo("RouteDA");
+            } else {
+                alert("Error in routing : Navigation TO DA !\nCheck console");
+            }
         }
 
     });

@@ -1,0 +1,51 @@
+/* Filter Bar of DA - Start  */
+.sapMITBFilter .sapMITBText{
+    width: 9rem!important;
+}
+.sapMITBTab{
+    margin: auto!important;
+}
+
+/* Filter Bar of DA - End  */
+
+.first-overflow {
+    padding: 1.4rem;
+    border-radius: 1em 1em 0 0;
+}
+
+.panel-button-container{
+    display: flex;
+    justify-content: end;
+    background: white;
+    padding: 1%;
+    
+}
+
+.panel-button-container > *:nth-child(n) {
+    /* styles */
+    margin-left: 1%;
+}
+
+/**********************/
+
+.flexbox-container{
+    /* background-color: aliceblue; */
+    padding: 1em;
+    /* border: 1px solid black; */
+}
+/* Specify the Max width for Image in Modal of converting DA TO CA */
+/* div#__data9{
+    max-width: 15%;
+} */
+
+.flex-container-left > * {
+
+}
+
+.image-product{
+    margin: auto;
+}
+
+.flexbox-container {
+    /* background-color: aquamarine; */
+}
