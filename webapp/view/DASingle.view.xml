@@ -7,7 +7,8 @@ controllerName="commandearticle.controller.DASingle" displayBlock="true">
    <Page id="page" title="Demande d'achat" showNavButton="true" navButtonPress=".onNavBackToDAHome">
         <!-- Flex box Start - Top of the page buttons -->
 		<FlexBox id="_IDGenFlexBox1" class="panel-button-container" justifyContent="End">
-                <Button id="_ButtonConvertDA" type="Default" icon="sap-icon://open-command-field" text="Procéder à la Commande" visible="true" press="onConvertDAtoCA"/>
+
+                <Button id="_ButtonConvertDA" type="Default" icon="sap-icon://open-command-field" text="Procéder à la Commande" visible="{= ${Status} === 'X'}" press="onConvertDAtoCA"/>
                 <!-- Button for Converting DA to CA, appears only if the DA is accepted -->
 				<!-- <Button type="Accept" icon="sap-icon://edit" class="" id="_edit" text="Edit" press=".onOpenDialog" />
 				<Button type="Reject" icon="sap-icon://sys-cancel-2" class="" id="_delete" text="Delete" press=".onDelete" /> -->
