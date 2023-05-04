@@ -1,15 +1,18 @@
 sap.ui.define(
     [
-      "sap/ui/core/mvc/Controller",
-      "sap/m/Dialog",
-      "sap/m/Button",
-      "sap/ui/model/Filter",
-      "sap/ui/model/FilterOperator",
+        "sap/ui/core/mvc/Controller",
+        "sap/suite/ui/microchart/RadialMicroChart",
+        "sap/ui/model/Filter",
+        "sap/ui/model/FilterOperator",
+        "sap/ui/table/RowSettings",
+        "sap/ui/table/RowAction",
+        "sap/ui/table/RowActionItem",
+        "sap/m/MessageToast",
     ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, Dialog, Button, Filter, FilterOperator) {
+    function (Controller, RadialMicroChart, Filter, FilterOperator, RowSettings, RowAction, RowActionItem, MessageToast) {
       "use strict";
   
       return Controller.extend("commandearticle.controller.Fournisseurs", {
@@ -79,10 +82,11 @@ sap.ui.define(
                                                 // Get the data of the selected row
                                                 const oSelectedRowData = oModel.getProperty(sPath);
                                                 console.log(oSelectedRowData);
+                                                delete oSelectedRowData['__metadata']
                                                 
                                                 const oRouter = sap.ui.core.UIComponent.getRouterFor(that);
                                                 if(oRouter){
-                                                    oRouter.navTo("RouteVendorSingleObjectPage", {
+                                                    oRouter.navTo("FournisseurPage", {
                                                         id: JSON.stringify(oSelectedRowData),
                                                     })
                                                 }else{

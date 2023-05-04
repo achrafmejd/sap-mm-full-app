@@ -150,8 +150,8 @@
           ]
         },
         {
-          "name": "RouteVendorsMain",
-          "pattern": "vendors",
+          "name": "Fournisseurs",
+          "pattern": "Fournisseurs",
           "target": [
             "TargetVendorsMain"
           ]
@@ -168,6 +168,13 @@
           "pattern": "Fournisseurs",
           "target": [
             "TargetFournisseurs"
+          ]
+        },
+        {
+          "name": "FournisseurPage",
+          "pattern": "Fournisseur/{id}",
+          "target": [
+            "TargetFournisseurPage"
           ]
         }
       ],
@@ -245,6 +252,13 @@
           "clearControlAggregation": false,
           "viewId": "Fournisseurs",
           "viewName": "Fournisseurs"
+        },
+        "TargetFournisseurPage" : {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "FournisseurPage",
+          "viewName": "FournisseurPage"
         }
       }
     },

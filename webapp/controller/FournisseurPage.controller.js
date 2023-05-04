@@ -1,0 +1,74 @@
+sap.ui.define(
+    [
+        "sap/ui/core/mvc/Controller",
+        "sap/ui/core/routing/History",
+        'sap/viz/ui5/format/ChartFormatter',
+    ],
+    /**
+     * @param {typeof sap.ui.core.mvc.Controller} Controller
+     */
+    function (Controller, History, ChartFormatter) {
+      "use strict";
+  
+      return Controller.extend("commandearticle.controller.FournisseurPage", {
+        onInit: function () {
+            const oRouter = sap.ui.core.UIComponent.getRouterFor(this); // Get the router instance
+            oRouter.getRoute("FournisseurPage").attachPatternMatched(this._onRouteMatched, this); // Attach a pattern matched event handler
+            const data = {
+                myData: [
+                    {
+                        "Commande": "Validée",
+                        "Nombre": 50
+                    },
+                    {
+                        "Commande": "Non Validée",
+                        "Nombre": 40
+                    },
+                    {
+                        "Commande": "Supprimée",
+                        "Nombre": 10
+                    }
+                ]
+            }
+            var jsonData = new sap.ui.model.json.JSONModel(data);
+            var oVizFrame = this.getView().byId("idVizFrame");
+            if(oVizFrame){
+                oVizFrame.setModel(jsonData);
+                oVizFrame.setVizProperties({
+                    plotArea: {
+                        dataLabel: {
+                            visible: true
+                        }
+                    }
+                });
+            }
+
+            var oPopOver = this.getView().byId("idPopOver");
+            oPopOver.connect(oVizFrame.getVizUid());
+            oPopOver.setFormatString(ChartFormatter.DefaultPattern.STANDARDFLOAT);
+        },
+        _onRouteMatched: function (oEvent) {
+            // Access the passed parameter from the first view
+            const oSelectedItem = oEvent.getParameter("arguments").id; 
+            var jModel = new sap.ui.model.json.JSONModel(JSON.parse(oSelectedItem));
+            console.log(oSelectedItem);
+            this.getView().setModel(jModel);
+            this.getView().bindElement({
+                    path: "/"
+            });
+        },
+        onNavBack: function () {
+            var oHistory = History.getInstance();
+            var sPreviousHash = oHistory.getPreviousHash();
+
+            if (sPreviousHash !== undefined) {
+                window.history.go(-1);
+            } else {
+                var oRouter = this.getOwnerComponent().getRouter();
+                oRouter.navTo("Fournisseurs", {}, true);
+            }
+        }
+      });
+    }
+  );
+  
