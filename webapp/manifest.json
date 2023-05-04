@@ -131,6 +131,20 @@
           "target": [
             "TargetDASingle"
           ]
+        },
+        {
+          "name": "RouteCA",
+          "pattern": "CA",
+          "target": [
+            "TargetCA"
+          ]
+        },
+        {
+          "name": "RouteCASingle",
+          "pattern": "CASingle/{object}",
+          "target": [
+            "TargetCASingle"
+          ]
         }
       ],
       "targets": {
@@ -172,6 +186,20 @@
           "clearControlAggregation": false,
           "viewId": "DASingle",
           "viewName": "DASingle"
+        },
+        "TargetCA": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "CA",
+          "viewName": "CA"
+        },
+        "TargetCASingle": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "CASingle",
+          "viewName": "CASingle"
         }
       }
     },

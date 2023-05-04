@@ -12,7 +12,7 @@ sap.ui.define(
     function (Controller, Dialog, Button, Filter, FilterOperator) {
       "use strict";
   
-      return Controller.extend("commandearticle.controller.DA", {
+      return Controller.extend("commandearticle.controller.CA", {
         onInit: function () {
           /* Get the entityset DemandeSet and then set some values of the DA in the DA view */
           const that = this;
@@ -25,7 +25,7 @@ sap.ui.define(
                   const numberDA_all = oData.results.length;
                   that
                     .getView()
-                    .byId("_IDGenIconTabFilter1")
+                    .byId("_IDGenIconTabFilter1CA")
                     .setCount(numberDA_all);
                   // Number of DA - Validée
                   const numberDA_accepted = oData.results.filter(
@@ -33,7 +33,7 @@ sap.ui.define(
                   ).length;
                   that
                     .getView()
-                    .byId("_IDGenIconTabFilter2")
+                    .byId("_IDGenIconTabFilter2CA")
                     .setCount(numberDA_accepted);
                   // Number of DA - En cours
                   const numberDA_pending = oData.results.filter(
@@ -41,7 +41,7 @@ sap.ui.define(
                   ).length;
                   that
                     .getView()
-                    .byId("_IDGenIconTabFilter3")
+                    .byId("_IDGenIconTabFilter3CA")
                     .setCount(numberDA_pending);
                   // Number of DA - Rejetée
                   //  const numberDA_deleted = oData.results.length.map((e)=>e.Supprime == 'X').length

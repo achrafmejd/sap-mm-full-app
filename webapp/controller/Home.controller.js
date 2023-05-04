@@ -43,7 +43,14 @@ sap.ui.define([
             } else {
                 alert("Error in routing : Navigation TO DA !\nCheck console");
             }
+        },
+        onNavigateToCAPage: function () {
+            const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            if (oRouter) {
+                oRouter.navTo("RouteCA");
+            } else {
+                alert("Error in routing : Navigation TO CA !\nCheck console");
+            }
         }
-
     });
 });

@@ -22,13 +22,13 @@
                     <TileContent id="_IDGenTileContent1" unit="" footer="">
                         <ImageContent id="_IDGenImageContent1" src="sap-icon://inventory" />
                     </TileContent>
-                </GenericTile>
+                </GenericTile> -->
                 <GenericTile id="_IDGenGenericTile2" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Commandes"
-                    subheader="Consultez vos commandes" press="onTest">
+                    subheader="Consultez vos commandes" press="onNavigateToCAPage">
                     <TileContent id="_IDGenTileContent2" unit="" footer="">
                         <ImageContent id="_IDGenImageContent2" src="sap-icon://sales-order"  />
                     </TileContent>
-                </GenericTile> -->
+                </GenericTile> 
 
                 <!-- Article Tile - START -->
                 <GenericTile id="_IDGenGenericTileArticle" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Articles"

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvc:View xmlns:mvc="sap.ui.core.mvc" 
+xmlns="sap.m" xmlns:w="sap.ui.webc.main" 
+xmlns:f="sap.ui.layout.form" 
+xmlns:core="sap.ui.core"
+controllerName="commandearticle.controller.CASingle" displayBlock="true">
+   <Page id="page" title="Commande d'Achat" showNavButton="true" navButtonPress=".onNavBackToDAHome">
+        <!-- Flex box Start - Top of the page buttons -->
+		<FlexBox id="_IDGenFlexBox1" class="panel-button-container" justifyContent="End">
+
+                <Button id="_ButtonConvertDA" type="Default" icon="sap-icon://open-command-field" text="Procéder à la Commande" visible="{= ${Status} === 'X'}" press="onConvertDAtoCA"/>
+                <!-- Button for Converting DA to CA, appears only if the DA is accepted -->
+				<!-- <Button type="Accept" icon="sap-icon://edit" class="" id="_edit" text="Edit" press=".onOpenDialog" />
+				<Button type="Reject" icon="sap-icon://sys-cancel-2" class="" id="_delete" text="Delete" press=".onDelete" /> -->
+        </FlexBox>
+		<!-- Flex box End - Top of the page buttons -->
+        <content>
+			<!-- Header of the page - Title info - Start -->
+			 <ObjectHeader
+                id="_IDGenObjectHeader1"
+                icon="sap-icon://request"
+                title="Commande - #{NumCa}"
+                backgroundDesign="Solid"
+                class="objectHeader-title"
+            >
+                <attributes>
+                    <ObjectAttribute id="_IDGenObjectAttribute11" />
+                    <ObjectAttribute id="_IDGenObjectAttribute1" title="Créé par" text="{Utulisateur}"/>
+                    <ObjectAttribute id="_IDGenObjectAttribute2" title="Date de création" text="{Datecreation}" />
+                    <ObjectAttribute id="_IDGenObjectAttribute3" title="Commentaire" text="{Commantaire}" />
+
+                </attributes>
+                <statuses>
+                    <ObjectStatus
+                        id="_IDGenObjectStatus1"
+                        class="sapUiSmallMarginBottom"
+                        text="{= ${Supprimé} === 'X' ? 'Rejetée' : ${Statut} === 'X' ? 'Validée' : 'En cours'}"
+                        inverted="true"
+                        icon="{= ${Supprimé} === 'X' ? 'sap-icon://delete' : ${Statut} === 'X' ? 'sap-icon://accept' : 'sap-icon://pending'}"
+                        state="{= ${Supprimé} === 'X' ? 'Error' : ${Statut} === 'X' ? 'Success' : 'Information'}"
+                    />
+                </statuses>
+            </ObjectHeader>
+			<!-- Header of the page - Title info - End -->
+
+            <!-- Tabs for DA Items - Start -->
+            <IconTabBar id="_IDGenIconTabBar1" expanded="{device>/isNoPhone}" class="sapUiSmallMarginBottom sapUiResponsiveContentPadding">
+                <items>
+                    <IconTabFilter id="_IDGenIconTabFilter2" key="attachments" text="Postes">
+                        <Table id="_IDGenTable1" items="{/}">
+                            <columns>
+                                <Column id="_IDGenColumn01" width="">
+                                    <Text id="_IDGenText01" text="Article" /> <!-- Image de l'article -->
+                                </Column>
+                                <Column id="_IDGenColumn1" width="">
+                                    <Text id="_IDGenText1" text="Poste" /> 
+                                </Column>
+                                <Column id="_IDGenColumn2" width="">
+                                    <Text id="_IDGenText2" text="Code Article" />
+                                </Column>
+                                <Column id="_IDGenColumn3" width="">
+                                    <Text id="_IDGenText3" text="Desgination" />
+                                </Column>
+                                <Column id="_IDGenColumn4" width="">
+                                    <Text id="_IDGenText4" text="Qte" />
+                                </Column>
+                                <Column id="_IDGenColumn5" width="">
+                                    <Text id="_IDGenText5" text="Prix Convenu" />
+                                </Column>
+                            </columns>
+                             <ColumnListItem id="_IDGenColumnListItem1">
+                                    <cells>
+                                        <Image id="_IDGenImage101" src="../media/HT-1000.jpg" width="50%" />
+                                    </cells>
+                                    <cells>
+                                        <Text id="_IDGenText6" class="_IDGenText1322_id000000" text="{NumPoste}" />
+                                    </cells>
+                                    <cells>
+                                        <Text id="_IDGenText7" class="_IDGenTex22t13_id000000" text="{CodeArticle}" />
+                                    </cells>
+                                    <cells>
+                                        <Text id="_IDGenText8" class="_IDGenText1322_id000000" text="{Designation}" />
+                                    </cells>
+                                    <cells>
+                                        <Text id="_IDGenText9" class="_IDGenTex22t13_id000000" text="{Qte} {UniteMesure}" />
+                                    </cells>
+                                    <cells>
+                                        <Text id="_IDGenText10" class="_IDGenTex22t13_id000000" text="{PuConvenu} {DevisePu}" />
+                                    </cells>
+                            </ColumnListItem>
+                        </Table>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+            <!-- Tabs for DA Items - End -->
+          
+
+        </content>
+        <!-- Busy Dialog - Start -->
+        <BusyDialog id="BusyDialog" />
+        <!-- Busy Dialog - End -->
+   </Page>
+</mvc:View>
