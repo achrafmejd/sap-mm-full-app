@@ -4,7 +4,7 @@ xmlns="sap.m" xmlns:w="sap.ui.webc.main"
 xmlns:f="sap.ui.layout.form" 
 xmlns:core="sap.ui.core"
 controllerName="commandearticle.controller.DASingle" displayBlock="true">
-   <Page id="page" title="{i18n&gt;title}" showNavButton="true" navButtonPress=".onNavBackToDAHome">
+   <Page id="page" title="Demande d'achat" showNavButton="true" navButtonPress=".onNavBackToDAHome">
         <!-- Flex box Start - Top of the page buttons -->
 		<FlexBox id="_IDGenFlexBox1" class="panel-button-container" justifyContent="End">
                 <Button id="_ButtonConvertDA" type="Default" icon="sap-icon://open-command-field" text="Procéder à la Commande" visible="true" press="onConvertDAtoCA"/>

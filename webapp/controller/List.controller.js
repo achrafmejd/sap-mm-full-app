@@ -197,7 +197,7 @@ sap.ui.define([
                         "DemandeAchat" : `${that._onGenerateIDs()}`,
                         "Utilisateur" : "Developper",
                         "Commentaire" : "Demande pour client Inwi",
-                        "Status" : "A"
+                        "Status" : ""
                     }
                     // les elements de la table header des demandes (Demande D'achat)
                     var itemsWithQuantity = [];

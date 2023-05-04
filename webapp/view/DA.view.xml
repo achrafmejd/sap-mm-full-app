@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:w="sap.ui.webc.main" controllerName="commandearticle.controller.DA" displayBlock="true">
-   <Page id="page" title="{i18n&gt;title}">
+   <Page id="page" title="Les Demandes d'Achat" showNavButton="true" navButtonPress=".onNavBackToDAHome">
       <IconTabBar id="iconTabBar" select=".onFilter" expandable="false">
          <items>
             <IconTabFilter id="_IDGenIconTabFilter1" key="all" showAll="true" count="0" text="Demande d'achats" />

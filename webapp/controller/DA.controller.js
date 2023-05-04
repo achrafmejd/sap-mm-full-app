@@ -118,6 +118,7 @@ sap.ui.define(
           oBinding.filter(aFilter);
         },
         onNewDAClick: function () {
+          const that = this;
           sap.m.MessageBox.show(
             "Vous allez être redirigé vers la page de selection d'articles !",
             {
@@ -130,11 +131,25 @@ sap.ui.define(
               onClose: function (oAction) {
                 if (oAction === sap.m.MessageBox.Action.OK) {
                   console.log("Redirect to new Page");
+                  const oRouter = sap.ui.core.UIComponent.getRouterFor(that);
+                  if (oRouter) {
+                      oRouter.navTo("list");
+                  } else {
+                      alert("Error in routing : Navigation TO Articles !\nCheck console");
+                  }
                 }
               },
             }
           );
         },
+        onNavBackToDAHome: function () {
+          const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            if (oRouter) {
+                oRouter.navTo("home");
+            } else {
+                alert("Error in routing : Navigation TO DA !\nCheck console");
+            }
+        }
       });
     }
   );

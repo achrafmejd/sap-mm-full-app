@@ -32,7 +32,7 @@
 
                 <!-- Article Tile - START -->
                 <GenericTile id="_IDGenGenericTileArticle" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Articles"
-                    subheader="Passez votre commande" press="onNavigateToArticles">
+                    subheader="" press="onNavigateToArticles">
                     <TileContent id="_IDGenTileContent3" unit="" footer="">
                         <ImageContent id="_IDGenImageContent3" src="sap-icon://product" />
                     </TileContent>
@@ -43,10 +43,10 @@
                 <GenericTile id="_IDGenGenericTileDA" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Demande d'Achat" subheader="" press="onNavigateToDAPage" >
 					<TileContent id="_IDGenTileContent8" >
 						<content>
-							<microchart:ComparisonMicroChart id="_IDGenComparisonMicroChart2" scale="%" size="Responsive" >
+							<microchart:ComparisonMicroChart id="_IDGenComparisonMicroChart2" scale="" size="Responsive" >
 								<microchart:data>
-									<microchart:ComparisonMicroChartData id="_IDGenComparisonMicroChartData4" title="Validée" value="80" color="Good" />
-									<microchart:ComparisonMicroChartData id="_IDGenComparisonMicroChartData5" title="En cours" value="10" color="Critical" />
+									<microchart:ComparisonMicroChartData id="_IDGenComparisonMicroChartData_Accepted" title="Validée" value="0" color="Good" />
+									<microchart:ComparisonMicroChartData id="_IDGenComparisonMicroChartData5_Not_Accepted" title="En cours" value="0" color="" />
 								</microchart:data>
 							</microchart:ComparisonMicroChart>
 						</content>
