@@ -82,6 +82,9 @@
           },
           {
             "uri": "css/demande_ame_project.css"
+          },
+          {
+            "uri": "css/vendors.css"
           }
       ]
     },
@@ -145,6 +148,27 @@
           "target": [
             "TargetCASingle"
           ]
+        },
+        {
+          "name": "RouteVendorsMain",
+          "pattern": "vendors",
+          "target": [
+            "TargetVendorsMain"
+          ]
+        },
+        {
+          "name": "RouteVendorSingleObjectPage",
+          "pattern": "vendors/{id}",
+          "target" : [
+              "TargetVendorSingleObjectPage"
+          ]
+        },
+        {
+          "name": "Fournisseurs",
+          "pattern": "Fournisseurs",
+          "target": [
+            "TargetFournisseurs"
+          ]
         }
       ],
       "targets": {
@@ -200,6 +224,27 @@
           "clearControlAggregation": false,
           "viewId": "CASingle",
           "viewName": "CASingle"
+        }, 
+        "TargetVendorsMain": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "VendorsMain",
+          "viewName": "VendorsMain"
+        },
+        "TargetVendorSingleObjectPage": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Vendor",
+          "viewName": "Vendor"
+        },
+        "TargetFournisseurs" : {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Fournisseurs",
+          "viewName": "Fournisseurs"
         }
       }
     },

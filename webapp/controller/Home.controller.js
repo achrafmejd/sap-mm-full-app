@@ -5,7 +5,6 @@ sap.ui.define([
     "use strict";
 
     return Controller.extend("commandearticle.controller.Home", {
-
         onInit : function () {
             const that = this
             // Get the Model and Get the DASet to initiate the values of the DA Tiles
@@ -51,6 +50,14 @@ sap.ui.define([
             } else {
                 alert("Error in routing : Navigation TO CA !\nCheck console");
             }
-        }
+        },
+        onNavigateToVendors: function () {
+            const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            if (oRouter) {
+              oRouter.navTo("Fournisseurs");
+            } else {
+              alert("Error in routing ! Check console");
+            }
+        },
     });
 });

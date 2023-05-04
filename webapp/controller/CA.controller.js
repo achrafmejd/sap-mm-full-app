@@ -14,11 +14,12 @@ sap.ui.define(
   
       return Controller.extend("commandearticle.controller.CA", {
         onInit: function () {
+          console.log('Hello from the CA');
           /* Get the entityset DemandeSet and then set some values of the DA in the DA view */
           const that = this;
           this.getOwnerComponent()
             .getModel()
-            .read("/DemandeSet", {
+            .read("/CommandeSet", {
               success: function (oData) {
                 if (oData.results.length) {
                   // Number of DA
@@ -29,15 +30,16 @@ sap.ui.define(
                     .setCount(numberDA_all);
                   // Number of DA - Validée
                   const numberDA_accepted = oData.results.filter(
-                    (e) => e.Status == "X"
+                    (e) => e.Statut == "X"
                   ).length;
+                  console.log('Number of Accepted '+ numberDA_accepted);
                   that
                     .getView()
                     .byId("_IDGenIconTabFilter2CA")
                     .setCount(numberDA_accepted);
                   // Number of DA - En cours
                   const numberDA_pending = oData.results.filter(
-                    (e) => e.Status == ""
+                    (e) => e.Statut == ""
                   ).length;
                   that
                     .getView()
@@ -109,7 +111,7 @@ sap.ui.define(
   
           if (sQuery && sQuery.length > 0) {
             aFilter.push(
-              new Filter("DemandeAchat", FilterOperator.Contains, sQuery)
+              new Filter("NumCa", FilterOperator.Contains, sQuery)
             );
           }
   
