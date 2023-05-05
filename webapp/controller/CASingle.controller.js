@@ -70,7 +70,7 @@ sap.ui.define([
                       new sap.m.ColumnListItem({
                         cells: [
                           new sap.m.Image({
-                            src: "../media/HT-1000.jpg",
+                            src: "{= '../images/' + ${CodeArticle} + '.png' }",
                             width: "50%",
                           }),
                           new sap.m.Text({

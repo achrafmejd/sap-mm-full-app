@@ -68,8 +68,9 @@ controllerName="commandearticle.controller.DASingle" displayBlock="true">
                                 </Column>
                             </columns>
                              <ColumnListItem id="_IDGenColumnListItem1">
-                                    <cells>
-                                        <Image id="_IDGenImage101" src="../media/HT-1000.jpg" width="50%" />
+                                    <cells> 
+                                        <Image id="_IDGenImage101" src="{= '../images/' + ${CodeArticle} + '.png' }" width="50%" />
+                                        <!-- <Image id="_IDGenImage101" src="../media/HT-1000.jpg" width="50%" /> -->
                                     </cells>
                                     <cells>
                                         <Text id="_IDGenText6" class="_IDGenText1322_id000000" text="{PosteDemande}" />

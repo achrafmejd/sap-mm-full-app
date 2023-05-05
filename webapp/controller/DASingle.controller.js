@@ -67,10 +67,10 @@ sap.ui.define(
               oTable.setModel(oModel);
               oTable.bindItems(
                 "/items",
-                new sap.m.ColumnListItem({
+                new sap.m.ColumnListItem({ 
                   cells: [
                     new sap.m.Image({
-                      src: "../media/HT-1000.jpg",
+                      src: "{= '../images/' + ${CodeArtcile} + '.png' }",
                       width: "50%",
                     }),
                     new sap.m.Text({

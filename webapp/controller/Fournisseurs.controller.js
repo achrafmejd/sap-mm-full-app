@@ -153,6 +153,14 @@ sap.ui.define(
             var oTable = this.byId("table");
             oTable.setEnableSelectAll(oEvent.getParameter("state"));
         },
+        onNavBackToDAHome: function(){
+            const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            if (oRouter) {
+                oRouter.navTo("home");
+            } else {
+                alert("Error in routing : Navigation TO Home !\nCheck console");
+            }
+        }
       });
     }
   );

@@ -4,7 +4,32 @@
     xmlns:semantic="sap.f.semantic"
     xmlns:layout="sap.ui.layout"
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns:viz="sap.viz.ui5.controls"
+		xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    	xmlns:viz.data="sap.viz.ui5.data" 
+		xmlns:chart="sap.suite.ui.commons"
         >
+   
+    <!-- <viz:Popover id="idPopOver"></viz:Popover>
+	<viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}" height='10em' width="100%" vizType='donut' vizProperties="{title:{ text:'ETAT DES COMMANDES DU FOURNISSEUR'}, plotArea:{colorPalette:['#0000FF', '#00FF00', '#FF0000']}}">
+		<viz:dataset>
+			<viz.data:FlattenedDataset id="_IDGenFlattenedDataset1" data="{/myData}">
+				<viz.data:dimensions>
+					<viz.data:DimensionDefinition id="_IDGenDimensionDefinition1" name="Commande"
+									value="{Commande}" />
+					</viz.data:dimensions>
+					<viz.data:measures>
+					<viz.data:MeasureDefinition id="_IDGenMeasureDefinition1" name="Nombre"
+									value="{Nombre}" />
+					</viz.data:measures>
+				</viz.data:FlattenedDataset>
+		</viz:dataset>
+			<viz:feeds>
+				<viz.feeds:FeedItem id="_IDGenFeedItem1" uid="size" type="Measure" values="Nombre" />
+				    <viz.feeds:FeedItem id="_IDGenFeedItem2" uid="color" type="Dimension" values="Commande" />
+			</viz:feeds>
+	</viz:VizFrame> -->
+
 
     <semantic:SemanticPage
         id="detailPage"
@@ -15,6 +40,7 @@
                 text="{Designation}"
                 level="H2"/>
         </semantic:titleHeading>
+
         <semantic:headerContent>
             <layout:HorizontalLayout id="_IDGenHorizontalLayout1" allowWrapping="true">
 				<layout:VerticalLayout id="_IDGenVerticalLayout2">
@@ -42,9 +68,11 @@
 				</layout:VerticalLayout>      
             </layout:HorizontalLayout> 
         </semantic:headerContent>
+            
         <semantic:content>
             <layout:HorizontalLayout id="_IDGenHorizontalLayout11" allowWrapping="true">
-               
+            <!-- <Text id="_IDGenText10" text="Hello"></Text> -->
+
                 <layout:VerticalLayout id="_IDGenVerticalLayout22" class="sapUiSmallMarginTop">
                         <Title id="_IDGenTitle2" text="FOURNISSEURS DE L'ARTICLE" level="H1"  />
                     	<MessageStrip 
@@ -101,26 +129,26 @@
                     press=".onCloseDetailPress"/>
         </semantic:closeAction>
 
-        <semantic:fullScreenAction>
+        <!-- <semantic:fullScreenAction>
             <semantic:FullScreenAction
                     id="enterFullScreen"
                     visible="{= !${device>/system/phone} &amp;&amp; !${appView>/actionButtonsInfo/midColumn/fullScreen}}"
                     press=".toggleFullScreen"/>
-        </semantic:fullScreenAction>
+        </semantic:fullScreenAction> -->
         
-        <semantic:exitFullScreenAction>
+        <!-- <semantic:exitFullScreenAction>
             <semantic:ExitFullScreenAction
                     id="exitFullScreen"
                     visible="{= !${device>/system/phone} &amp;&amp; ${appView>/actionButtonsInfo/midColumn/fullScreen}}"
                     press=".toggleFullScreen"/>
-        </semantic:exitFullScreenAction>
+        </semantic:exitFullScreenAction> -->
 
 		<!-- Custom Footer Content-->
-		<semantic:footerCustomActions>
+		<!-- <semantic:footerCustomActions>
 			<Button id="_IDGenButton6" text="Save" />
 			<Button id="_IDGenButton7" text="Cancel" />
-		</semantic:footerCustomActions>
+		</semantic:footerCustomActions> -->
 
     </semantic:SemanticPage>
-
+           
 </mvc:View>

@@ -4,8 +4,11 @@ sap.ui.define([
     "../model/formatter",
     "sap/m/library",
     "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
-], function (BaseController, JSONModel, formatter, mobileLibrary,Filter,FilterOperator) {
+    "sap/ui/model/FilterOperator",
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/core/routing/History",
+    'sap/viz/ui5/format/ChartFormatter',
+], function (BaseController, JSONModel, formatter, mobileLibrary,Filter,FilterOperator, Controller, History, ChartFormatter) {
     "use strict";
 
     // shortcut for sap.m.URLHelper
@@ -79,6 +82,23 @@ sap.ui.define([
          * @param {sap.ui.base.Event} oEvent pattern match event in route 'object'
          * @private
          */
+        _onGetPercentage(myData, field, value) {
+            // Calculate the sum
+            let sum = 0
+            console.log('FROM GetPertance');
+            console.log(myData);
+            myData.forEach((item) => {
+                console.log('From Item');
+                console.log(item);
+                if (item[field] == value) {
+                    sum += 1
+                }
+            })
+            console.log('SUM' + sum);
+            // Calculate the percentage
+            const percentageLand = (sum / myData.length) * 100;
+            return percentageLand
+        },
         _onObjectMatched: function (oEvent) {
             var sObjectId =  oEvent.getParameter("arguments").objectId;
             this.getModel("appView").setProperty("/layout", "TwoColumnsMidExpanded");
@@ -124,11 +144,100 @@ sap.ui.define([
                           ]
                         })
                       });
+
+
+                    // Start API Call here for Getting Number of DA 
+                    // mymodel.read('/postecommandeSet', {
+                    //     success: function(odata){
+                    //         if(odata.results){
+                    //             console.log('From the postecommandeSet');
+                    //             console.log(odata.results);
+                    //             const all_data = odata.results;
+                    //             // console.log(all_data);
+                    //             console.log('Article '+ sObjectId);
+                    //             const accepted_ca = all_data.filter((e)=>e.CodeArticle == sObjectId).length;
+                    //             console.log(accepted_ca);
+                    //             // const non_accepted_ca = odata.results.filter((e)=>e.CodeArticle == sObjectId);
+                    //             // console.log('Heey ' + sObjectId);
+                    //             // console.log('He');
+                    //             // console.log('ST ' + that._onGetPercentage(all_data, 'CodeArticle', '100000044'));
+                    //             const data = {
+                    //                 myData: [
+                    //                     {
+                    //                         "Commande": "Nombre de Commandes",
+                    //                         "Nombre": 0 
+                    //                     }
+                    //                     // ,
+                    //                     // {
+                    //                     //     "Commande": "Nombre",
+                    //                     //     "Nombre": 100
+                    //                     // }
+                    //                 ]
+                    //             }
+
+                    //             // console.log(data);
+
+                    //             var jsonData = new sap.ui.model.json.JSONModel(data);
+                    //             var oVizFrame = that.getView().byId("idVizFrame");
+                    //             if(oVizFrame){
+                    //                 oVizFrame.setModel(jsonData);
+                    //                 oVizFrame.setVizProperties({
+                    //                     plotArea: {
+                    //                         dataLabel: {
+                    //                             visible: true
+                    //                         }
+                    //                     }
+                    //                 });
+                    //             }
+
+                    //             var oPopOver = that.getView().byId("idPopOver");
+                    //             oPopOver.connect(oVizFrame.getVizUid());
+                    //             oPopOver.setFormatString(ChartFormatter.DefaultPattern.STANDARDFLOAT);
+                    //         }
+                    //     },
+                    //     error: function(err){
+                    //         console.log(err);
+                    //         alert('Error in the Poste Commande Call APIs !')
+                    //     }
+                    // })
                 },
                 error: function(error){
                     console.log(error);
                 }
             })
+
+            // const data = {
+            //     myData: [
+            //         {
+            //             "Commande": "Validée",
+            //             "Nombre": 50
+            //         },
+            //         {
+            //             "Commande": "Non Validée",
+            //             "Nombre": 40
+            //         },
+            //         {
+            //             "Commande": "Supprimée",
+            //             "Nombre": 10
+            //         }
+            //     ]
+            // }
+            // var jsonData = new sap.ui.model.json.JSONModel(data);
+            // var oVizFrame = this.getView().byId("idVizFrame");
+            // if(oVizFrame){
+            //     oVizFrame.setModel(jsonData);
+            //     oVizFrame.setVizProperties({
+            //         plotArea: {
+            //             dataLabel: {
+            //                 visible: true
+            //             }
+            //         }
+            //     });
+            // }
+
+            // var oPopOver = this.getView().byId("idPopOver");
+            // oPopOver.connect(oVizFrame.getVizUid());
+            // oPopOver.setFormatString(ChartFormatter.DefaultPattern.STANDARDFLOAT);
         },
 
         /**
