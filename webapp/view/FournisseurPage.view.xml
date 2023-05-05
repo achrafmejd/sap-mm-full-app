@@ -13,10 +13,10 @@
 		showNavButton="true"
 		navButtonPress=".onNavBack">
 		<!-- Flex box Start - Top of the page buttons -->
-		<FlexBox id="_IDGenFlexBox1" class="panel-button-container" justifyContent="SpaceBetween">
+		<!-- <FlexBox id="_IDGenFlexBox1" class="panel-button-container" justifyContent="SpaceBetween">
 				<Button type="Accept" icon="sap-icon://edit" class="" id="_edit" text="Edit" press=".onOpenDialog" />
 				<Button type="Reject" icon="sap-icon://sys-cancel-2" class="" id="_delete" text="Delete" press=".onDelete" />
-        </FlexBox>
+        </FlexBox> -->
 		<!-- Flex box End - Top of the page buttons -->
 
         <content>

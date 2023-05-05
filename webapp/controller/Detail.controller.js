@@ -147,59 +147,28 @@ sap.ui.define([
 
 
                     // Start API Call here for Getting Number of DA 
-                    // mymodel.read('/postecommandeSet', {
-                    //     success: function(odata){
-                    //         if(odata.results){
-                    //             console.log('From the postecommandeSet');
-                    //             console.log(odata.results);
-                    //             const all_data = odata.results;
-                    //             // console.log(all_data);
-                    //             console.log('Article '+ sObjectId);
-                    //             const accepted_ca = all_data.filter((e)=>e.CodeArticle == sObjectId).length;
-                    //             console.log(accepted_ca);
-                    //             // const non_accepted_ca = odata.results.filter((e)=>e.CodeArticle == sObjectId);
-                    //             // console.log('Heey ' + sObjectId);
-                    //             // console.log('He');
-                    //             // console.log('ST ' + that._onGetPercentage(all_data, 'CodeArticle', '100000044'));
-                    //             const data = {
-                    //                 myData: [
-                    //                     {
-                    //                         "Commande": "Nombre de Commandes",
-                    //                         "Nombre": 0 
-                    //                     }
-                    //                     // ,
-                    //                     // {
-                    //                     //     "Commande": "Nombre",
-                    //                     //     "Nombre": 100
-                    //                     // }
-                    //                 ]
-                    //             }
+                    mymodel.read('/postecommandeSet', {
+                        success: function(odata){
+                            if(odata.results){
+                                console.log('From the postecommandeSet');
+                                console.log(odata.results);
+                                const all_data = odata.results;
+                                // console.log(all_data);
+                                console.log('Article '+ sObjectId);
+                                const accepted_ca = all_data.filter((e)=>e.CodeArticle == sObjectId).length;
+                                console.log(accepted_ca);
 
-                    //             // console.log(data);
-
-                    //             var jsonData = new sap.ui.model.json.JSONModel(data);
-                    //             var oVizFrame = that.getView().byId("idVizFrame");
-                    //             if(oVizFrame){
-                    //                 oVizFrame.setModel(jsonData);
-                    //                 oVizFrame.setVizProperties({
-                    //                     plotArea: {
-                    //                         dataLabel: {
-                    //                             visible: true
-                    //                         }
-                    //                     }
-                    //                 });
-                    //             }
-
-                    //             var oPopOver = that.getView().byId("idPopOver");
-                    //             oPopOver.connect(oVizFrame.getVizUid());
-                    //             oPopOver.setFormatString(ChartFormatter.DefaultPattern.STANDARDFLOAT);
-                    //         }
-                    //     },
-                    //     error: function(err){
-                    //         console.log(err);
-                    //         alert('Error in the Poste Commande Call APIs !')
-                    //     }
-                    // })
+                                var oRadialMicroChart = that.getView().byId("_IDGenHarveyBallMicroChartItemFirst");
+                                // Calculate and set values to the view
+                                oRadialMicroChart.setFraction(23,2);
+                                
+                            }
+                        },
+                        error: function(err){
+                            console.log(err);
+                            alert('Error in the Poste Commande Call APIs !')
+                        }
+                    })
                 },
                 error: function(error){
                     console.log(error);
