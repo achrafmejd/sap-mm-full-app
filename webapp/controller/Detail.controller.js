@@ -155,12 +155,14 @@ sap.ui.define([
                                 const all_data = odata.results;
                                 // console.log(all_data);
                                 console.log('Article '+ sObjectId);
-                                const accepted_ca = all_data.filter((e)=>e.CodeArticle == sObjectId).length;
-                                console.log(accepted_ca);
+                                const ca_of_fournisseur = all_data.filter((e)=>e.CodeArticle == sObjectId).length;
+                                console.log(ca_of_fournisseur);
 
                                 var oRadialMicroChart = that.getView().byId("_IDGenHarveyBallMicroChartItemFirst");
                                 // Calculate and set values to the view
-                                oRadialMicroChart.setFraction(23,2);
+                                console.log((ca_of_fournisseur / all_data.length) * 100);
+                                const value = (ca_of_fournisseur / all_data.length) * 100 || 0
+                                oRadialMicroChart.setFraction(value);
                                 
                             }
                         },

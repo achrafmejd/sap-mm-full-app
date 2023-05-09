@@ -108,7 +108,28 @@ sap.ui.define([
                   // call the function recursively with the next element
                   that._onAddedPost(oModel, remainingElements[0], remainingElements);
                 }else{
-                  alert('MEBRUK')
+                    sap.m.MessageBox.show(
+                      "Traitement terminé avec succès ! Vous allez être redirigé vers la page d'acceuil",
+                      {
+                        icon: sap.m.MessageBox.Icon.INFORMATION,
+                        title: "Confirmation",
+                        actions: [
+                          sap.m.MessageBox.Action.OK,
+                          sap.m.MessageBox.Action.CANCEL,
+                        ],
+                        onClose: function (oAction) {
+                          if (oAction === sap.m.MessageBox.Action.OK) {
+                            console.log("Redirect to new Page");
+                            const oRouter = sap.ui.core.UIComponent.getRouterFor(that);
+                            if (oRouter) {
+                                oRouter.navTo("home", {}, true);
+                            } else {
+                                alert("Error in routing : Navigation TO Articles !\nCheck console");
+                            }
+                          }
+                        },
+                      }
+                    );
                 }
               },
               error: function(Error){

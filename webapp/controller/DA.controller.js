@@ -29,7 +29,7 @@ sap.ui.define(
                     .setCount(numberDA_all);
                   // Number of DA - Validée
                   const numberDA_accepted = oData.results.filter(
-                    (e) => e.Status == "X"
+                    (e) => e.Status == " V"
                   ).length;
                   that
                     .getView()
@@ -93,7 +93,7 @@ sap.ui.define(
               break;
   
             case "v":
-              aFilter.push(new Filter("Status", FilterOperator.EQ, "X"));
+              aFilter.push(new Filter("Status", FilterOperator.EQ, " V"));
               oBinding.filter(aFilter);
               break;
             // case 'del':
