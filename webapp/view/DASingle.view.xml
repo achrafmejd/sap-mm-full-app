@@ -8,7 +8,7 @@ controllerName="commandearticle.controller.DASingle" displayBlock="true">
         <!-- Flex box Start - Top of the page buttons -->
 		<FlexBox id="_IDGenFlexBox1" class="panel-button-container" justifyContent="End">
 
-                <Button id="_ButtonConvertDA" type="Default" icon="sap-icon://open-command-field" text="Procéder à la Commande" visible="{= ${Status} === ' V'}" press="onConvertDAtoCA"/>
+                <Button id="_ButtonConvertDA" type="Default" icon="sap-icon://open-command-field" text="Procéder à la Commande" visible="{= ${Status} === 'X'}" press="onConvertDAtoCA"/>
                 <!-- Button for Converting DA to CA, appears only if the DA is accepted -->
 				<!-- <Button type="Accept" icon="sap-icon://edit" class="" id="_edit" text="Edit" press=".onOpenDialog" />
 				<Button type="Reject" icon="sap-icon://sys-cancel-2" class="" id="_delete" text="Delete" press=".onDelete" /> -->
@@ -33,10 +33,10 @@ controllerName="commandearticle.controller.DASingle" displayBlock="true">
                     <ObjectStatus
                         id="_IDGenObjectStatus1"
                         class="sapUiSmallMarginBottom"
-                        text="{= ${Supprimé} === 'X' ? 'Rejetée' : ${Status} === ' V' ? 'Validée' : 'En cours'}"
+                        text="{= ${Supprimé} === 'X' ? 'Rejetée' : ${Status} === 'X' ? 'Validée' : 'En cours'}"
                         inverted="true"
-                        icon="{= ${Supprimé} === 'X' ? 'sap-icon://delete' : ${Status} === ' V' ? 'sap-icon://accept' : 'sap-icon://pending'}"
-                        state="{= ${Supprimé} === 'X' ? 'Error' : ${Status} === ' V' ? 'Success' : 'Information'}"
+                        icon="{= ${Supprimé} === 'X' ? 'sap-icon://delete' : ${Status} === 'X' ? 'sap-icon://accept' : 'sap-icon://pending'}"
+                        state="{= ${Supprimé} === 'X' ? 'Error' : ${Status} === 'X' ? 'Success' : 'Information'}"
                     />
                 </statuses>
             </ObjectHeader>

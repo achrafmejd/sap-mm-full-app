@@ -14,7 +14,7 @@ sap.ui.define([
                         // Get all DASet    
                         const DASet = odata.results
                         // Get only the Accepted DA
-                        const DASetAccepted = DASet.filter((e)=>e.Status == ' V')
+                        const DASetAccepted = DASet.filter((e)=>e.Status == 'X')
                         that.getView().byId('_IDGenComparisonMicroChartData_Accepted').setValue(DASetAccepted.length)
                         // Get only the Non-accepted DA 
                         const DASetNotAccepted = DASet.filter((e)=>e.Status == '')
