@@ -23,6 +23,7 @@ sap.ui.define([
          * Called when the list controller is instantiated. It sets up the event handling for the list/detail communication and other lifecycle tasks.
          * @public
          */
+
         onInit : function () {
             // Control state model
             var oList = this.byId("list"),

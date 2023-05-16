@@ -11,14 +11,14 @@
 				class="sapUiTinyMarginBegin"/>  
 		<l:HorizontalLayout id="_IDGenVerticalLayout1">
                 <GenericTile id="_IDGenGenericTile22" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Commandes"
-                    subheader="Consultez vos commandes" press="onNavigateToCAPage">
+                    subheader="Consultez vos commandes d'achat" press="onNavigateToCAPage">
                     <TileContent id="_IDGenTileContent22" unit="" footer="">
                         <ImageContent id="_IDGenImageContent2" src="sap-icon://sales-order"  />
                     </TileContent>
                 </GenericTile> 
 
                 <!-- DA Tile - START -->
-                <GenericTile id="_IDGenGenericTileDA" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Demande d'Achat" subheader="" press="onNavigateToDAPage" >
+                <GenericTile id="_IDGenGenericTileDA" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Demande d'Achat" subheader="Consultez vos demandes d'achat" press="onNavigateToDAPage" >
 					<TileContent id="_IDGenTileContent8" >
 						<content>
 							<microchart:ComparisonMicroChart id="_IDGenComparisonMicroChart2" scale="" size="Responsive" >
@@ -59,7 +59,7 @@
 					<TileContent id="_IDGenTileContent2" footer="INWI Maroc">
 						<NewsContent id="_IDGenNewsContent2"
 							contentText="Ayez une idée sur Articles !"
-							subheader="Consulter La Liste " />
+							subheader="Consulter La Liste et passez votre demande." />
 					</TileContent>
 				</GenericTile>
 			</SlideTile>
