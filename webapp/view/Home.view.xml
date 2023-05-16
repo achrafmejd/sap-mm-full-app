@@ -1,43 +1,21 @@
 <mvc:View xmlns:f="sap.f"
     controllerName="commandearticle.controller.Home"
-    xmlns="sap.m"
-    xmlns:semantic="sap.f.semantic"
-    xmlns:layout="sap.ui.layout"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns:microchart="sap.suite.ui.microchart"
+    xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout"  xmlns:microchart="sap.suite.ui.microchart"
         >
 
     <Page id="_HomePage">
-    <!-- <Text id="_IDGenText1" text="HELLO"></Text> -->
-		<layout:VerticalLayout id="_IDGenVerticalLayout1" class="sapUiResponsiveMargin">
-            <!-- Quick Navigation Meny - Start -->
-			<Title id="_IDGenTitle1"
+    	<l:VerticalLayout id="_IDV1" width='100%'>
+		<Title id="_IDGenTitle1"
 				titleStyle="H5"
-				text="Navigation rapide"
+				text="Navigation Rapide"
 				class="sapUiTinyMarginBegin"/>  
-
-			<layout:HorizontalLayout id="_IDGenHorizontalLayout1" allowWrapping="true">
-            	<GenericTile id="_IDGenGenericTile1" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Fournisseurs" 
-                    subheader="Gerez vos fournisseurs" press="onNavigateToVendors">
-                    <TileContent id="_IDGenTileContent1" unit="" footer="">
-                        <ImageContent id="_IDGenImageContent1" src="sap-icon://inventory" />
-                    </TileContent>
-                </GenericTile>
-                <GenericTile id="_IDGenGenericTile2" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Commandes"
+		<l:HorizontalLayout id="_IDGenVerticalLayout1">
+                <GenericTile id="_IDGenGenericTile22" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Commandes"
                     subheader="Consultez vos commandes" press="onNavigateToCAPage">
-                    <TileContent id="_IDGenTileContent2" unit="" footer="">
+                    <TileContent id="_IDGenTileContent22" unit="" footer="">
                         <ImageContent id="_IDGenImageContent2" src="sap-icon://sales-order"  />
                     </TileContent>
                 </GenericTile> 
-
-                <!-- Article Tile - START -->
-                <GenericTile id="_IDGenGenericTileArticle" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Articles"
-                    subheader="" press="onNavigateToArticles">
-                    <TileContent id="_IDGenTileContent3" unit="" footer="">
-                        <ImageContent id="_IDGenImageContent3" src="sap-icon://product" />
-                    </TileContent>
-                </GenericTile>
-                <!-- Article Tile - END -->
 
                 <!-- DA Tile - START -->
                 <GenericTile id="_IDGenGenericTileDA" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Demande d'Achat" subheader="" press="onNavigateToDAPage" >
@@ -53,12 +31,40 @@
 					</TileContent>
 				</GenericTile>
                 <!-- DA Tile - END -->
+		</l:HorizontalLayout>
+	</l:VerticalLayout>
 
-			</layout:HorizontalLayout>
+	<l:VerticalLayout id="_IDV2" width='100%'>
+		<Title id="_IDGenTitle2"
+				titleStyle="H5"
+				text="Consultation Rapide"
+				class="sapUiTinyMarginBegin"/>  
+		<l:HorizontalLayout id="_IDGenVerticalLayout2">
+			<SlideTile id="_IDGenSlideTile1" class="sapUiTinyMarginBegin sapUiTinyMarginTop">
+				<GenericTile id="_IDGenGenericTile1"
+					backgroundImage="../images/fournisseur.jpg"
+					frameType="TwoByOne" press="onNavigateToVendors">
+					<TileContent id="_IDGenTileContent1" footer="INWI Maroc">
+						<NewsContent id="_IDGenNewsContent1"
+							contentText="Liste des Fournisseurs !"
+							subheader="Consulter La Liste de vos fournisseurs avec plusieurs détails" />
+					</TileContent>
+				</GenericTile>
+			</SlideTile>
 
-
-		</layout:VerticalLayout>
-
+			<SlideTile id="_IDGenSlideTile2" class="sapUiTinyMarginBegin sapUiTinyMarginTop">
+				<GenericTile id="_IDGenGenericTile2"
+					backgroundImage="../images/articles.jpg"
+					frameType="TwoByOne" press="onNavigateToArticles">
+					<TileContent id="_IDGenTileContent2" footer="INWI Maroc">
+						<NewsContent id="_IDGenNewsContent2"
+							contentText="Ayez une idée sur Articles !"
+							subheader="Consulter La Liste " />
+					</TileContent>
+				</GenericTile>
+			</SlideTile>
+		</l:HorizontalLayout>
+	</l:VerticalLayout>
     </Page>
 
 </mvc:View>

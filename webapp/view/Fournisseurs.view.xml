@@ -11,7 +11,7 @@
         <!-- SmartFilterBar - Start -->
         <sfb:SmartFilterBar
 		    id="smartFilterBar"
-		    entitySet="/FournissSet"
+		    entitySet="FournissSet"
 		    basicSearchFieldName="Fournisseur"
 		    persistencyKey="UniqueAndStablePersistencyKey">
             <sfb:controlConfiguration>

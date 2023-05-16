@@ -20,7 +20,7 @@
                </content>
             </OverflowToolbar>
             <!-- First toolbar for Title and Search - End -->
-            <Table id="_IDGenTable1" items="{/DemandeSet}" alternateRowColors="true">
+            <Table id="_IDGenTable1" items="{/}" alternateRowColors="true">
                <!-- Table Header - Start -->
                <headerToolbar>
                   <OverflowToolbar id="_IDGenOverflowToolbar1">

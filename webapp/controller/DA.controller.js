@@ -21,6 +21,10 @@ sap.ui.define(
             .read("/DemandeSet", {
               success: function (oData) {
                 if (oData.results.length) {
+                  // ************************************** VIEW MODEL **************************************
+                  // Set ALL DA to the Table view - To enable Autorefresh when entering the Page
+                  that.getView().byId('_IDGenTable1').setModel(new sap.ui.model.json.JSONModel(oData.results)) 
+                  // ************************************** FILTER DATA **************************************
                   // Number of DA
                   const numberDA_all = oData.results.length;
                   that
