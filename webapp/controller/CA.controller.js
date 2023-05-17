@@ -62,12 +62,14 @@ sap.ui.define(
           const oModel = oBindingContext.getModel(); // Get the model of the selected row
           // Get the data of the selected row
           const oSelectedRowData = oModel.getProperty(sPath);
+          console.log('22');
+          console.log(oSelectedRowData);
           const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-          const { DemandeAchat, DateCreation, Utilisateur, Commentaire, Status } = oSelectedRowData
-          const newData = { DemandeAchat, DateCreation, Utilisateur, Commentaire, Status };
+          const {NumCa,Fournisseur, Utulisateur, Datecreation, Statut, DatelivraisonSouh,Commantaire,DemandeAchat  } = oSelectedRowData
+          const newData = {NumCa,Fournisseur, Utulisateur, Datecreation, Statut, DatelivraisonSouh,Commantaire,DemandeAchat  }
           console.log(newData);
           if (oRouter) {
-            oRouter.navTo("RouteDASingle", {
+            oRouter.navTo("RouteCASingle", {
               object: JSON.stringify(newData),
             });
           } else {
@@ -90,12 +92,12 @@ sap.ui.define(
               oBinding.filter([]);
               break;
             case "nv":
-              aFilter.push(new Filter("Status", FilterOperator.EQ, ""));
+              aFilter.push(new Filter("Statut", FilterOperator.EQ, ""));
               oBinding.filter(aFilter);
               break;
   
             case "v":
-              aFilter.push(new Filter("Status", FilterOperator.EQ, "X"));
+              aFilter.push(new Filter("Statut", FilterOperator.EQ, "X"));
               oBinding.filter(aFilter);
               break;
             // case 'del':

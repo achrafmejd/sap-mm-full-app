@@ -74,10 +74,10 @@
                         </cells>
                         <cells>
                            <ObjectStatus id="_IDGenObjectStatus2"
-                              text="{= ${Supprimé} === 'X' ? 'Rejetée' : ${Statut} === 'X' ? 'Validée' : 'En cours'}"
+                              text="{= ${Statut} === 'X' ? 'Validée' : 'En cours'}"
                               inverted="true"
-                              icon="{= ${Supprimé} === 'X' ? 'sap-icon://delete' : ${Statut} === 'X' ? 'sap-icon://accept' : 'sap-icon://pending'}"
-                              state="{= ${Supprimé} === 'X' ? 'Error' : ${Statut} === 'X' ? 'Success' : 'Information'}" />
+                              icon="{= ${Statut} === 'X' ? 'sap-icon://accept' : 'sap-icon://pending'}"
+                              state="{= ${Statut} === 'X' ? 'Success' : 'Information'}" />
                         </cells>
                 </ColumnListItem>
             </Table>
