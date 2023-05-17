@@ -157,7 +157,7 @@ sap.ui.define([
     
               var oDialog = new sap.m.Dialog({
                 title: "Confirmation des Articles",
-                icon: "sap-icon://home",
+                icon: "sap-icon://list",
                 contentWidth: "40%",
                 content: selectedItemsArray.map((item, index) => {
                   var itemId = `${item.CodeArticle}`;
@@ -189,13 +189,11 @@ sap.ui.define([
                         showColon: true,
                         text: "Quantité souhaité",
                       }),
-                      new sap.m.Input({
-                        id: `In-${itemId}`,
-                        type: sap.m.InputType.Number,
-                        min: 0,
-                        valueState: sap.ui.core.ValueState.Error,
-                        valueStateText: "The value must be non-negative"
-                      }),
+                      new sap.m.StepInput({
+                        id : `In-${itemId}`,
+                        min: 1,
+                        width: '20%'
+                      })
                     ],
                   });
                 }),
@@ -231,7 +229,7 @@ sap.ui.define([
                     });
 
                     //Insertion des postes demandes
-
+                    console.log('########################### LOGS ###########################');
                     console.log(demande_header);
                     console.log(itemsWithQuantity);
 
@@ -239,27 +237,27 @@ sap.ui.define([
                     // Array of promises 
                     const promises = new Array()
                     // Add the first Call to the Promise
-                    promises.push(
-                      new Promise(function (resolve, reject) {
-                        oModel.create('/DemandeSet', demande_header, {
-                          success: function (res) {
-                            console.log('Demande Header is Executed Successfully !')
-                            console.log(res)
-                            resolve(res)
-                          },
-                          error: function (err) {
-                            alert('ERREUR DANS COMMANDE ENTETE')
-                            reject(err)
-                          }
-                        })
-                      })
-                    )
+                    // promises.push(
+                    //   new Promise(function (resolve, reject) {
+                    //     oModel.create('/DemandeSet', demande_header, {
+                    //       success: function (res) {
+                    //         console.log('Demande Header is Executed Successfully !')
+                    //         console.log(res)
+                    //         resolve(res)
+                    //       },
+                    //       error: function (err) {
+                    //         alert('ERREUR DANS COMMANDE ENTETE')
+                    //         reject(err)
+                    //       }
+                    //     })
+                    //   })
+                    // )
                     // Execute the First promise and then move to the Object Items
-                    Promise.all(promises).then(() => {
-                        that._onAddedPost(oModel, itemsWithQuantity[0], itemsWithQuantity)
-                    }).catch((err) => {
-                      console.log(err);
-                    })
+                    // Promise.all(promises).then(() => {
+                    //     that._onAddedPost(oModel, itemsWithQuantity[0], itemsWithQuantity)
+                    // }).catch((err) => {
+                    //   console.log(err);
+                    // })
 
                     oDialog.close();
                     oDialog.destroyContent();
