@@ -3,6 +3,7 @@
 xmlns="sap.m" xmlns:w="sap.ui.webc.main" 
 xmlns:f="sap.ui.layout.form" 
 xmlns:core="sap.ui.core"
+xmlns:xs="sap.uxap"
 controllerName="commandearticle.controller.CASingle" displayBlock="true">
    <Page id="page" title="Commande d'Achat" showNavButton="true" navButtonPress=".onNavBackToDAHome">
         <content>
@@ -16,12 +17,12 @@ controllerName="commandearticle.controller.CASingle" displayBlock="true">
             >
                 <attributes>
                     <ObjectAttribute id="_IDGenObjectAttribute11" />
-                    <ObjectAttribute id="_IDGenObjectAttribute7" title="Créé par" text="{DemandeAchat}"/>
-                    <ObjectAttribute id="_IDGenObjectAttribute1" title="Créé par" text="{Utulisateur}"/>
-                    <ObjectAttribute id="_IDGenObjectAttribute2" title="Date de création" text="{Datecreation}" />
-                    <ObjectAttribute id="_IDGenObjectAttribute5" title="Date de Livraison Souhaitée" text="{DatelivraisonSouh}" />
-                    <ObjectAttribute id="_IDGenObjectAttribute3" title="Commentaire" text="{Commantaire}" />
-                    <ObjectAttribute id="_IDGenObjectAttribute4" title="Fournisseur" text="{Fournisseur}" />
+                    <ObjectAttribute id="_IDGenObjectAttribute7" title="Demande d'Achat" active="true" text="{DemandeAchat}" press="alert('Hello')"/>
+                    <ObjectAttribute id="_IDGenObjectAttribute1" title="Créé par" active="true" text="{Utulisateur}"/>
+                    <ObjectAttribute id="_IDGenObjectAttribute2" title="Date de création" active="true" text="{Datecreation}" />
+                    <ObjectAttribute id="_IDGenObjectAttribute5" title="Date de Livraison Souhaitée" active="true"  text="{DatelivraisonSouh}" />
+                    <ObjectAttribute id="_IDGenObjectAttribute3" title="Commentaire" active="true" text="{Commantaire}" />
+                    <ObjectAttribute id="_IDGenObjectAttribute4" title="Fournisseur" active="true" text="{Fournisseur}" />
                 </attributes>
                 <statuses>
                     <ObjectStatus
