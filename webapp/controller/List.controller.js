@@ -15,6 +15,11 @@ sap.ui.define([
 
         formatter: formatter,
         onInit : function () {
+            // Initialize the List Selection 
+            const list = this.getView().byId("list");
+            if(list.getSelectedItems()){
+              list.setSelectedItem([])
+            }
             // Control state model
             var oList = this.byId("list"),
                 oViewModel = this._createViewModel(),
@@ -113,7 +118,8 @@ sap.ui.define([
                             console.log("Redirect to new Page");
                             const oRouter = sap.ui.core.UIComponent.getRouterFor(that);
                             if (oRouter) {
-                                oRouter.navTo("home", {}, true);
+                                
+                                oRouter.navTo("list", {}, true);
                             } else {
                                 alert("Error in routing : Navigation TO Articles !\nCheck console");
                             }
@@ -192,7 +198,8 @@ sap.ui.define([
                       new sap.m.StepInput({
                         id : `In-${itemId}`,
                         min: 1,
-                        width: '20%'
+                        width: '100%',
+                        textAlign : 'Center'
                       })
                     ],
                   });
@@ -237,27 +244,27 @@ sap.ui.define([
                     // Array of promises 
                     const promises = new Array()
                     // Add the first Call to the Promise
-                    // promises.push(
-                    //   new Promise(function (resolve, reject) {
-                    //     oModel.create('/DemandeSet', demande_header, {
-                    //       success: function (res) {
-                    //         console.log('Demande Header is Executed Successfully !')
-                    //         console.log(res)
-                    //         resolve(res)
-                    //       },
-                    //       error: function (err) {
-                    //         alert('ERREUR DANS COMMANDE ENTETE')
-                    //         reject(err)
-                    //       }
-                    //     })
-                    //   })
-                    // )
+                    promises.push(
+                      new Promise(function (resolve, reject) {
+                        oModel.create('/DemandeSet', demande_header, {
+                          success: function (res) {
+                            console.log('Demande Header is Executed Successfully !')
+                            console.log(res)
+                            resolve(res)
+                          },
+                          error: function (err) {
+                            alert('ERREUR DANS COMMANDE ENTETE')
+                            reject(err)
+                          }
+                        })
+                      })
+                    )
                     // Execute the First promise and then move to the Object Items
-                    // Promise.all(promises).then(() => {
-                    //     that._onAddedPost(oModel, itemsWithQuantity[0], itemsWithQuantity)
-                    // }).catch((err) => {
-                    //   console.log(err);
-                    // })
+                    Promise.all(promises).then(() => {
+                        that._onAddedPost(oModel, itemsWithQuantity[0], itemsWithQuantity)
+                    }).catch((err) => {
+                      console.log(err);
+                    })
 
                     oDialog.close();
                     oDialog.destroyContent();
