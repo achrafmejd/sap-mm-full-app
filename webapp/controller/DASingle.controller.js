@@ -180,9 +180,9 @@ sap.ui.define(
             Designation: `${article.Commentaire}`,
             Qte: `${article.Quantite}`,
             UniteMesure: `${article.Unite}`,
-            PuConvenu: `0`, // Du fournisseur
+            PuConvenu: `${article.Prix}`, // Du fournisseur
             DevisePu: `${article.Devise}`, // Du fournisseur
-            Montant: `0`, // Total
+            Montant: `${JSON.parse(article.Prix) * JSON.parse(article.Quantite)}`, // Total
             Commantaire: "Commentaire de Test par Achraf",
             Unit: `${article.Devise}`,
           };
@@ -341,37 +341,6 @@ sap.ui.define(
                             const selectedItemPlain = oSelectedItem
                               .getBindingContext()
                               .getObject();
-                            // const quantity = sap.ui
-                            //   .getCore()
-                            //   .byId(`In-${itemId}`)
-                            //   .getText()
-                            //   .split(":")[1]
-                            //   .trim()
-                            //   .split(" ")[0];
-                            // console.log(quantity);
-                
-                            // console.log(
-                            //   "Total ",
-                            //   parseInt(selectedItemPlain.PrixAchat) *
-                            //   parseInt(quantity)
-                            // );
-                
-                            // sap.ui
-                            //   .getCore()
-                            //   .byId(`Summary-Price-Vendors-${itemId}`)
-                            //   .setText(
-                            //     `Prix d'Achat Total (Fournisseur) : ${selectedItemPlain.PrixAchat} MAD`
-                            //   );
-                
-                            // sap.ui
-                            //   .getCore()
-                            //   .byId(`Summary-Total-Bill-${itemId}`)
-                            //   .setText(
-                            //     `Total (Qte x Prix) : ${parseInt(
-                            //       selectedItemPlain.PrixAchat
-                            //     ) * parseInt(quantity)
-                            //     } MAD`
-                            //   );
                           } else {
                             console.log("No item selected");
                           }
@@ -436,40 +405,40 @@ sap.ui.define(
                 DAArticles,
                 order_header
               );
-
+              console.log(DAArticles);
               console.log(order_header);
               console.log(order_items);
 
-              // Get the Model
-              const oModel = that.getOwnerComponent().getModel();
-              // Array of promises
-              const promises = new Array()
-              // Add the first Call to the Promise
-              promises.push(
-                new Promise(function (resolve, reject) {
-                  oModel.create('/CommandeSet', order_header, {
-                    success: function (res) {
-                      console.log('Order Header is Executed Successfully !')
-                      console.log(res)
-                      resolve(res)
-                    },
-                    error: function (err) {
-                      oBusyDialog.close()
-                      alert('ERREUR DANS COMMANDE ENTETE')
-                      reject(err)
-                    }
-                  })
-                })
-              )
-              // Execute the First promise and then move to the Object Items
-              Promise.all(promises).then(() => {
-                  that._onGetAddItem(oModel, order_items[0], order_items)
-              }).catch((err) => {
-                console.log(err);
-              })
+              // // Get the Model
+              // const oModel = that.getOwnerComponent().getModel();
+              // // Array of promises
+              // const promises = new Array()
+              // // Add the first Call to the Promise
+              // promises.push(
+              //   new Promise(function (resolve, reject) {
+              //     oModel.create('/CommandeSet', order_header, {
+              //       success: function (res) {
+              //         console.log('Order Header is Executed Successfully !')
+              //         console.log(res)
+              //         resolve(res)
+              //       },
+              //       error: function (err) {
+              //         oBusyDialog.close()
+              //         alert('ERREUR DANS COMMANDE ENTETE')
+              //         reject(err)
+              //       }
+              //     })
+              //   })
+              // )
+              // // Execute the First promise and then move to the Object Items
+              // Promise.all(promises).then(() => {
+              //     that._onGetAddItem(oModel, order_items[0], order_items)
+              // }).catch((err) => {
+              //   console.log(err);
+              // })
 
-              oDialog.close();
-              oDialog.destroyContent();
+              // oDialog.close();
+              // oDialog.destroyContent();
             },
           }),
           endButton: new sap.m.Button({
