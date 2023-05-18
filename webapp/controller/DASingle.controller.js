@@ -134,176 +134,11 @@ sap.ui.define(
                         new sap.m.Text({
                           id: `In-${itemId}`,
                           text: `Quantité Demandée : ${item.Quantite}  ${item.Unite}`,
-                        }),
-                        // new sap.m.Text({
-                        //   id: `I8-${itemId}`,
-                        //   text: "Fournisseur",
-                        // }),
-                        // new sap.m.Input({
-                        //   id: `inputValueHelpCustomIcon-${itemId}`,
-                        //   type: "Text",
-                        //   width: "70%",
-                        //   placeholder: "Choisissez le Fournisseur souhaité",
-                        //   showValueHelp: true,
-                        //   valueHelpIconSrc: "sap-icon://value-help",
-                        //   valueHelpRequest: function () {
-                        //     // Preapare the Filter
-                        //     const aFilter = [
-                        //       new Filter(
-                        //         "CodeArticle",
-                        //         FilterOperator.Contains,
-                        //         itemId
-                        //       ),
-                        //     ];
-
-                        //     const List = new sap.m.List({
-                        //       id: "List_fournisseur_prix",
-                        //       mode: "SingleSelectLeft",
-                        //       items: {
-                        //         path: "/",
-                        //         template: new sap.m.StandardListItem({
-                        //           title: "{Fournisseur}",
-                        //           description:
-                        //             "Prix de Vente : {PrixAchat} {Devise}",
-                        //           info: "Quantité disponible : {Quantite} {Unite}",
-                        //         }),
-                        //       },
-                        //     });
-                        //     dataModel.read("/ArticleFournisseurSet", {
-                        //       filters: aFilter,
-                        //       success: function (oData) {
-                        //         console.log("Hello");
-                        //         if (oData.results.length) {
-                        //           console.log(oData.results);
-
-                        //           const jModel =
-                        //             new sap.ui.model.json.JSONModel(
-                        //               oData.results
-                        //             );
-
-                        //           List.setModel(jModel);
-                        //         } else {
-                        //           alert("No Fournisseur");
-                        //         }
-                        //       },
-                        //       error: function (error) {
-                        //         console.log(error);
-                        //       },
-                        //     });
-
-                        //     const that = this;
-                        //     const oVendorsPriceDialog = new sap.m.Dialog({
-                        //       icon: "sap-icon://open-command-field",
-                        //       title: "Procéder à la Commande d'Achat",
-                        //       contentWidth: "70%",
-                        //       // Content of the Dialog of ValueHelp
-                        //       content: [List],
-                        //       beginButton: new sap.m.Button({
-                        //         // type: "Accept",
-                        //         // icon: "sap-icon://accept",
-                        //         text: "Choisir",
-                        //         press: function () {
-                        //           const oSelectedItem = List.getSelectedItem();
-                        //           if (oSelectedItem) {
-                        //             // input.setValue(oSelectedItem.getTitle())
-                        //             sap.ui
-                        //               .getCore()
-                        //               .byId(
-                        //                 `inputValueHelpCustomIcon-${itemId}`
-                        //               )
-                        //               .setValue(oSelectedItem.getTitle());
-                        //             sap.ui
-                        //               .getCore()
-                        //               .byId(
-                        //                 `inputValueHelpCustomIcon-${itemId}`
-                        //               )
-                        //               .setEnabled(false);
-
-                        //             console.log(
-                        //               oSelectedItem
-                        //                 .getBindingContext()
-                        //                 .getObject()
-                        //             );
-                        //             const selectedItemPlain = oSelectedItem
-                        //               .getBindingContext()
-                        //               .getObject();
-                        //             const quantity = sap.ui
-                        //               .getCore()
-                        //               .byId(`In-${itemId}`)
-                        //               .getText()
-                        //               .split(":")[1]
-                        //               .trim()
-                        //               .split(" ")[0];
-                        //             console.log(quantity);
-
-                        //             console.log(
-                        //               "Total ",
-                        //               parseInt(selectedItemPlain.PrixAchat) *
-                        //               parseInt(quantity)
-                        //             );
-
-                        //             sap.ui
-                        //               .getCore()
-                        //               .byId(`Summary-Price-Vendors-${itemId}`)
-                        //               .setText(
-                        //                 `Prix d'Achat Total (Fournisseur) : ${selectedItemPlain.PrixAchat} MAD`
-                        //               );
-
-                        //             sap.ui
-                        //               .getCore()
-                        //               .byId(`Summary-Total-Bill-${itemId}`)
-                        //               .setText(
-                        //                 `Total (Qte x Prix) : ${parseInt(
-                        //                   selectedItemPlain.PrixAchat
-                        //                 ) * parseInt(quantity)
-                        //                 } MAD`
-                        //               );
-                        //           } else {
-                        //             console.log("No item selected");
-                        //           }
-                        //           oVendorsPriceDialog.close();
-                        //           oVendorsPriceDialog.destroyContent();
-                        //         },
-                        //       }),
-                        //       endButton: new sap.m.Button({
-                        //         // type: "Accept",
-                        //         // icon: "sap-icon://accept",
-                        //         text: "Fermer",
-                        //         press: function () {
-                        //           oVendorsPriceDialog.close();
-                        //           oVendorsPriceDialog.destroyContent();
-                        //         },
-                        //       }),
-                        //     });
-
-                        //     oVendorsPriceDialog.open();
-                        //   },
-                        // }),
+                        })
                       ],
                     }),
                   ],
                 }),
-                // new sap.m.Panel({
-                //   id: `pn-summary-${itemId}`,
-                //   headerText: `Résumé`,
-                //   content: [
-                //     new sap.m.FlexBox({
-                //       id: "",
-                //       direction: "Column",
-                //       justifyContent: "Start",
-                //       items: [
-                //         new sap.m.Text({
-                //           id: `Summary-Price-Vendors-${itemId}`,
-                //           text: "Prix d'Achat Total : (Fournisseur)",
-                //         }),
-                //         new sap.m.Text({
-                //           id: `Summary-Total-Bill-${itemId}`,
-                //           text: "Total : (Qte x Prix)",
-                //         }),
-                //       ],
-                //     }),
-                //   ],
-                // }),
               ],
             });
           })
@@ -439,6 +274,123 @@ sap.ui.define(
                   showValueHelp: true,
                   valueHelpIconSrc: "sap-icon://value-help",
                   valueHelpRequest: function (){
+                    // Create the List
+                    const List = new sap.m.List({
+                      id: "List_fournisseur_prix",
+                      mode: "SingleSelectLeft",
+                      items: {
+                        path: "/",
+                        template: new sap.m.StandardListItem({
+                          title: "{Fournisseur}",
+                          description:
+                            "Nom du Fournisseur : {Nom}",
+                          info: "Pays : {Pays}",
+                        }),
+                      },
+                    });
+                    // Model
+                    that.getOwnerComponent().getModel().read('/FournissSet', {
+                      success: function(oData){
+                          if(oData.results){
+                            const jModel = new sap.ui.model.json.JSONModel(oData.results)
+
+                            List.setModel(jModel)
+                          }else{
+                            alert('No fournisseur')
+                          }
+                      },
+                      error: function(oError){
+                        console.log(oError);
+                        alert('Error occured, Check Console !')
+                      }
+                    })
+
+                    // Modal
+                    const oVendorsPriceDialog = new sap.m.Dialog({
+                      icon: "sap-icon://open-command-field",
+                      title: "Procéder à la Commande d'Achat",
+                      contentWidth: "70%",
+                      // Content of the Dialog of ValueHelp
+                      content: [List],
+                      beginButton: new sap.m.Button({
+                        // type: "Accept",
+                        // icon: "sap-icon://accept",
+                        text: "Choisir",
+                        press: function () {
+                          const oSelectedItem = List.getSelectedItem();
+                          if (oSelectedItem) {
+                            // input.setValue(oSelectedItem.getTitle())
+                            sap.ui
+                              .getCore()
+                              .byId(
+                                `inputValueHelpCustomIcon`
+                              )
+                              .setValue(oSelectedItem.getTitle());
+                            sap.ui
+                              .getCore()
+                              .byId(
+                                `inputValueHelpCustomIcon`
+                              )
+                              .setEnabled(false);
+                
+                            console.log(
+                              oSelectedItem
+                                .getBindingContext()
+                                .getObject()
+                            );
+                            const selectedItemPlain = oSelectedItem
+                              .getBindingContext()
+                              .getObject();
+                            // const quantity = sap.ui
+                            //   .getCore()
+                            //   .byId(`In-${itemId}`)
+                            //   .getText()
+                            //   .split(":")[1]
+                            //   .trim()
+                            //   .split(" ")[0];
+                            // console.log(quantity);
+                
+                            // console.log(
+                            //   "Total ",
+                            //   parseInt(selectedItemPlain.PrixAchat) *
+                            //   parseInt(quantity)
+                            // );
+                
+                            // sap.ui
+                            //   .getCore()
+                            //   .byId(`Summary-Price-Vendors-${itemId}`)
+                            //   .setText(
+                            //     `Prix d'Achat Total (Fournisseur) : ${selectedItemPlain.PrixAchat} MAD`
+                            //   );
+                
+                            // sap.ui
+                            //   .getCore()
+                            //   .byId(`Summary-Total-Bill-${itemId}`)
+                            //   .setText(
+                            //     `Total (Qte x Prix) : ${parseInt(
+                            //       selectedItemPlain.PrixAchat
+                            //     ) * parseInt(quantity)
+                            //     } MAD`
+                            //   );
+                          } else {
+                            console.log("No item selected");
+                          }
+                          oVendorsPriceDialog.close();
+                          oVendorsPriceDialog.destroyContent();
+                        },
+                      }),
+                      endButton: new sap.m.Button({
+                        // type: "Accept",
+                        // icon: "sap-icon://accept",
+                        text: "Fermer",
+                        press: function () {
+                          oVendorsPriceDialog.close();
+                          oVendorsPriceDialog.destroyContent();
+                        },
+                      }),
+                    });
+                
+                    oVendorsPriceDialog.open();
 
                   }
                 }).addStyleClass('VendorInput'),
@@ -449,13 +401,7 @@ sap.ui.define(
                 new sap.m.Input({
                   id: `DateLivraisonSouhaitee`,
                   type: "Date",
-                  width: "70%",
-                  // placeholder: "Choisissez le Fournisseur souhaité",
-                  // showValueHelp: true,
-                  // valueHelpIconSrc: "sap-icon://value-help",
-                  // valueHelpRequest: function (){
-                    
-                  // }
+                  width: "70%"
                 }),
               ],
             }).addStyleClass('Panel-Summary-Container'),
