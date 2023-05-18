@@ -22,6 +22,13 @@ sap.ui.define(
             .read("/CommandeSet", {
               success: function (oData) {
                 if (oData.results.length) {
+                  console.log(oData.results);
+                  // Changing Date Format
+                  const odata = oData.results.map((e)=>{
+                    e.Datecreation = new Date(e.Datecreation).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' })
+                    e.DatelivraisonSouh = new Date(e.DatelivraisonSouh).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' })
+                  })
+                  console.log(odata);
                   // Number of DA
                   const numberDA_all = oData.results.length;
                   that

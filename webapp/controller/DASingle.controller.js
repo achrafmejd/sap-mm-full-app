@@ -409,36 +409,36 @@ sap.ui.define(
               console.log(order_header);
               console.log(order_items);
 
-              // // Get the Model
-              // const oModel = that.getOwnerComponent().getModel();
-              // // Array of promises
-              // const promises = new Array()
-              // // Add the first Call to the Promise
-              // promises.push(
-              //   new Promise(function (resolve, reject) {
-              //     oModel.create('/CommandeSet', order_header, {
-              //       success: function (res) {
-              //         console.log('Order Header is Executed Successfully !')
-              //         console.log(res)
-              //         resolve(res)
-              //       },
-              //       error: function (err) {
-              //         oBusyDialog.close()
-              //         alert('ERREUR DANS COMMANDE ENTETE')
-              //         reject(err)
-              //       }
-              //     })
-              //   })
-              // )
-              // // Execute the First promise and then move to the Object Items
-              // Promise.all(promises).then(() => {
-              //     that._onGetAddItem(oModel, order_items[0], order_items)
-              // }).catch((err) => {
-              //   console.log(err);
-              // })
+              // Get the Model
+              const oModel = that.getOwnerComponent().getModel();
+              // Array of promises
+              const promises = new Array()
+              // Add the first Call to the Promise
+              promises.push(
+                new Promise(function (resolve, reject) {
+                  oModel.create('/CommandeSet', order_header, {
+                    success: function (res) {
+                      console.log('Order Header is Executed Successfully !')
+                      console.log(res)
+                      resolve(res)
+                    },
+                    error: function (err) {
+                      oBusyDialog.close()
+                      alert('ERREUR DANS COMMANDE ENTETE')
+                      reject(err)
+                    }
+                  })
+                })
+              )
+              // Execute the First promise and then move to the Object Items
+              Promise.all(promises).then(() => {
+                  that._onGetAddItem(oModel, order_items[0], order_items)
+              }).catch((err) => {
+                console.log(err);
+              })
 
-              // oDialog.close();
-              // oDialog.destroyContent();
+              oDialog.close();
+              oDialog.destroyContent();
             },
           }),
           endButton: new sap.m.Button({

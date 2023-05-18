@@ -4,13 +4,30 @@ xmlns="sap.m" xmlns:w="sap.ui.webc.main"
 xmlns:f="sap.ui.layout.form" 
 xmlns:core="sap.ui.core"
 xmlns:xs="sap.uxap"
+xmlns:ff="sap.f"
 controllerName="commandearticle.controller.CASingle" displayBlock="true">
    <Page id="page" title="Commande d'Achat" showNavButton="true" navButtonPress=".onNavBackToDAHome">
         <content>
 			<!-- Header of the page - Title info - Start -->
-			 <ObjectHeader
+            <ff:DynamicPageTitle id="_IDGenDynamicPageTitle1">
+					<ff:heading>
+						<Title id="_IDGenTitle1" text="Commande - #{NumCa}"/>
+					</ff:heading>
+					<ff:expandedContent>
+						<Label id="_IDGenLabel1" text="Provenant de la Demande #{DemandeAchat}"/>
+					</ff:expandedContent>
+                    <ff:content>
+						<OverflowToolbar id="_IDGenOverflowToolbar1">
+							<GenericTag id="_IDGenGenericTag1" text="{= ${Supprimé} === 'X' ? 'Rejetée' : ${Statut} === 'X' ? 'Validée' : 'En cours'}"
+								status="{= ${Supprimé} === 'X' ? 'Error' : ${Statut} === 'X' ? 'Success' : 'Information'}"
+								design="StatusIconHidden">
+								
+							</GenericTag>
+						</OverflowToolbar>
+					</ff:content>
+            </ff:DynamicPageTitle>
+			 <!-- <ObjectHeader
                 id="_IDGenObjectHeader1"
-                icon="sap-icon://request"
                 title="Commande - #{NumCa}"
                 backgroundDesign="Solid"
                 class="objectHeader-title"
@@ -34,7 +51,7 @@ controllerName="commandearticle.controller.CASingle" displayBlock="true">
                         state="{= ${Supprimé} === 'X' ? 'Error' : ${Statut} === 'X' ? 'Success' : 'Information'}"
                     />
                 </statuses>
-            </ObjectHeader>
+            </ObjectHeader> -->
 			<!-- Header of the page - Title info - End -->
 
             <!-- Tabs for DA Items - Start -->
