@@ -49,3 +49,26 @@
 .flexbox-container {
     /* background-color: aquamarine; */
 }
+
+
+.Panel-Summary-Container .sapMPanelContent{
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    /* height: 13em!important; */
+    /* width: 90%; */
+    /* margin: auto; */
+    margin-left: 2em;
+}
+
+.VendorLabel {
+    margin-bottom: 1%;
+}
+
+.DateLabel {
+    margin: 1% 0 1% 0;
+}
+
+.VendorInput{
+
+}
