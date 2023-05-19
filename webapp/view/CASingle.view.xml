@@ -5,6 +5,7 @@ xmlns:f="sap.ui.layout.form"
 xmlns:core="sap.ui.core"
 xmlns:xs="sap.uxap"
 xmlns:ff="sap.f"
+	xmlns:layout="sap.ui.layout"
 controllerName="commandearticle.controller.CASingle" displayBlock="true">
    <Page id="page" title="Commande d'Achat" showNavButton="true" navButtonPress=".onNavBackToDAHome">
         <content>
@@ -26,11 +27,40 @@ controllerName="commandearticle.controller.CASingle" displayBlock="true">
 						</OverflowToolbar>
 					</ff:content>
             </ff:DynamicPageTitle>
+			<ff:DynamicPageHeader id="_IDGenDynamicPageHeader1" pinnable="true">
+				<layout:HorizontalLayout id="_IDGenHorizontalLayout1" allowWrapping="true">
+
+					<layout:VerticalLayout id="_IDGenVerticalLayout1" class="sapUiMediumMarginEnd">
+						<ObjectAttribute id="_IDGenObjectAttribute1" title="Utilisateur"/>
+                        <ObjectStatus id="_IDGenObjectStatus1001" text="{Utulisateur}" icon="sap-icon://account"  state="Information" />
+					</layout:VerticalLayout>
+
+                    <layout:VerticalLayout id="_IDGenVerticalLayout221" class="sapUiMediumMarginEnd">
+						<ObjectAttribute id="_IDGenObjectAttribute421" title="Fournisseur"/>
+						<ObjectStatus id="_IDGenObjectStatus100" text="{Fournisseur}" icon="sap-icon://shipping-status" state="Information" />
+					</layout:VerticalLayout>
+
+					<layout:VerticalLayout id="_IDGenVerticalLayout2"  class="sapUiMediumMarginEnd">
+						<ObjectAttribute id="_IDGenObjectAttribute4" title="Date de Création"/>
+						<ObjectStatus id="_IDGenObjectStatus101" text="{path: 'Datecreation', formatter: '.formatDate'}" icon="sap-icon://select-appointments" state="Information" />
+					</layout:VerticalLayout>
+
+                    <layout:VerticalLayout id="_IDGenVerticalLayout22" class="sapUiMediumMarginEnd">
+						<ObjectAttribute id="_IDGenObjectAttribute5" title="Date de Livraison Souhaité"/>
+						<ObjectStatus id="_IDGenObjectStatus2" text="{path: 'DatelivraisonSouh', formatter: '.formatDate'}" icon="sap-icon://select-appointments"  state="Success" />
+					</layout:VerticalLayout>
+
+                    <layout:VerticalLayout id="_IDGenVerticalLayout3" class="sapUiMediumMarginEnd">
+						<ObjectAttribute id="_IDGenObjectAttribute7" title="Commentaire"/>
+						<ObjectStatus id="_IDGenObjectStatus3" icon="sap-icon://comment" text="{Commantaire}" state="Success" />
+					</layout:VerticalLayout>
+
+				</layout:HorizontalLayout>
+			</ff:DynamicPageHeader>
 			 <!-- <ObjectHeader
                 id="_IDGenObjectHeader1"
                 title="Commande - #{NumCa}"
-                backgroundDesign="Solid"
-                class="objectHeader-title"
+                backgroundDesign="Solid"g
             >
                 <attributes>
                     <ObjectAttribute id="_IDGenObjectAttribute11" />

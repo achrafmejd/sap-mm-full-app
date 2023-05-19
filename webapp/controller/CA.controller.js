@@ -73,7 +73,17 @@ sap.ui.define(
           console.log(oSelectedRowData);
           const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
           const {NumCa,Fournisseur, Utulisateur, Datecreation, Statut, DatelivraisonSouh,Commantaire,DemandeAchat  } = oSelectedRowData
-          const newData = {NumCa,Fournisseur, Utulisateur, Datecreation, Statut, DatelivraisonSouh,Commantaire,DemandeAchat  }
+          const newData = {
+              NumCa,
+              Fournisseur,
+              Utulisateur,
+              Datecreation, 
+              Statut,
+              DatelivraisonSouh  ,
+              Commantaire,
+              DemandeAchat  
+          }
+          
           console.log(newData);
           if (oRouter) {
             oRouter.navTo("RouteCASingle", {

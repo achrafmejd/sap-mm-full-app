@@ -493,5 +493,15 @@ sap.ui.define([
                 // Open the Dialog - First time after executing the function
                 oDialog.open();
               },
+              formatDate: function(dateValue) {
+                // Convert the date value to a Date object
+                var date = new Date(dateValue);
+          
+                // Format the date to the desired format (e.g., "dd-MM-yyyy")
+                var formattedDate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+          
+                // Return the formatted date
+                return formattedDate;
+              }
         });
     });
