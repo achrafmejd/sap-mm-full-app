@@ -15,6 +15,7 @@ sap.ui.define([
 
         formatter: formatter,
         onInit : function () {
+            this.getView().byId("commButton").setVisible(false);
             // Initialize the List Selection 
             const list = this.getView().byId("list");
             if(list.getSelectedItems()){
@@ -105,7 +106,7 @@ sap.ui.define([
                   that._onAddedPost(oModel, remainingElements[0], remainingElements);
                 }else{
                     sap.m.MessageBox.show(
-                      "Traitement terminé avec succès ! Vous allez être redirigé vers la page d'acceuil",
+                      "Traitement terminé avec succès !",
                       {
                         icon: sap.m.MessageBox.Icon.INFORMATION,
                         title: "Confirmation",
@@ -118,8 +119,9 @@ sap.ui.define([
                             console.log("Redirect to new Page");
                             const oRouter = sap.ui.core.UIComponent.getRouterFor(that);
                             if (oRouter) {
-                                
-                                oRouter.navTo("list", {}, true);
+                              oRouter.navTo("list", {}, true);
+                                oRouter.navTo("home", {}, true);
+                                window.location.reload()
                             } else {
                                 alert("Error in routing : Navigation TO Articles !\nCheck console");
                             }
@@ -137,6 +139,7 @@ sap.ui.define([
         onNavigateToHome: function(){
             const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             if (oRouter) {
+                oRouter.navTo('list')
                 oRouter.navTo("home");
             } else {
                 alert("Error in routing : Navigation TO DA !\nCheck console");
@@ -147,7 +150,7 @@ sap.ui.define([
             var list = this.getView().byId("list");
             var selectedItems = list.getSelectedItems();
             var selectedItemsArray = [];
-            if (selectedItems) {
+            if (selectedItems.length!=0) {
               console.log("IN");
               console.log(selectedItems);
               for (var i = 0; i < selectedItems.length; i++) {
@@ -437,6 +440,7 @@ sap.ui.define([
                 this._showDetail(oEvent.getParameter("listItem") || oEvent.getSource());
                 // this.getView().byId('commButton').setEnabled(true)
             }
+            this.getView().byId("commButton").setVisible(true);
         },
         /**
          * Event handler for the bypassed event, which is fired when no routing pattern matched.

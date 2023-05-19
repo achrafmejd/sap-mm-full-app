@@ -162,6 +162,7 @@ sap.ui.define(
         const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
         if (oRouter) {
           oRouter.navTo("home");
+           
         } else {
           alert("Error in routing : Navigation TO DA !\nCheck console");
         }

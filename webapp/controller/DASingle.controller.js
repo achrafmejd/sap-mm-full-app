@@ -48,17 +48,7 @@ sap.ui.define(
         oModel.read(`/postedemandeSet`, {
           filters: aFilter,
           success: function (oData) {
-            // console.log(oData.results);
-            // // oObject = oData;
-            // // Set the Data to the view
-            // oExistingModel.setData(oData.results)
-            // const jModel = new sap.ui.model.json.JSONModel(oData.results);
-            // that.getView().byId("_IDGenTable1").setModel(jModel, "myModel");
 
-            // that.getView().byId("_IDGenTable1").setModel(jModel);
-            // that.getView().byId("_IDGenTable1").bindElement({
-            //     path: "/poste"
-            // });
             var oTable = that.getView().byId("_IDGenTable1");
             var oModel = new sap.ui.model.json.JSONModel();
             oModel.setData({
@@ -96,6 +86,25 @@ sap.ui.define(
             console.log(oError);
           },
         });
+
+        // // Check if the DA has CA
+        // // Check if the DA has CA
+        // this.getOwnerComponent().getModel().read('/CommandeSet', {
+        //   success: function(oData){
+        //     // 
+        //     if(oData.results.length){
+        //        console.log(oData.results);
+        //        const hasCA = oData.results.filter((da)=>da.DemandeAchat == JSON.parse(oSelectedItem).DemandeAchat).length > 0
+        //        console.log(hasCA);
+        //        if(hasCA){
+        //          that.getView().byId('_ButtonConvertDA').setVisible(false)
+        //        }
+        //     }
+        //   },  
+        //   error: function(oErr){
+        //     console.log(oErr);
+        //   }
+        // })
       },
       _onGetDialogContent: function (DAArticles) {
         // Get the Model for Getting ARTFRN Entityset
@@ -222,6 +231,7 @@ sap.ui.define(
                         sap.ui.core.UIComponent.getRouterFor(that);
                       if (oRouter) {
                         oRouter.navTo("home", {}, true);
+                        
                       } else {
                         alert(
                           "Error in routing : Navigation TO Articles !\nCheck console"
