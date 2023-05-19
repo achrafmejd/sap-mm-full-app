@@ -409,7 +409,7 @@ sap.ui.define(
                   DatelivraisonSouh: `\/Date(${convertedDateSouhToTimestamp})\/`, 
                   Fournisseur : `${sap.ui.getCore().byId('inputValueHelpCustomIcon').getValue()}`,
                   Commantaire: "Commentaire de Test par Achraf",
-                  DemandeAchat: `${that.getView().byId("_IDGenObjectHeader1").getTitle().split("#")[1].trim()}`,
+                  DemandeAchat: `${that.getView().byId("_IDGenTitle1").getText().split("#")[1].trim()}`,
               };
               const order_items = that._onGetOrderItems(
                 DAArticles,

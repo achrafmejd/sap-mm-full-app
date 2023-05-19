@@ -30,6 +30,8 @@ sap.ui.define(
                     }
                 ]
             }
+
+
             var jsonData = new sap.ui.model.json.JSONModel(data);
             var oVizFrame = this.getView().byId("idVizFrame");
             if(oVizFrame){
@@ -56,6 +58,9 @@ sap.ui.define(
             this.getView().bindElement({
                     path: "/"
             });
+
+            console.log(oSelectedItem);
+
         },
         onNavBack: function () {
             var oHistory = History.getInstance();
