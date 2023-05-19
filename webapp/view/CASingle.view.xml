@@ -5,7 +5,7 @@ xmlns:f="sap.ui.layout.form"
 xmlns:core="sap.ui.core"
 xmlns:xs="sap.uxap"
 xmlns:ff="sap.f"
-	xmlns:layout="sap.ui.layout"
+xmlns:layout="sap.ui.layout"
 controllerName="commandearticle.controller.CASingle" displayBlock="true">
    <Page id="page" title="Commande d'Achat" showNavButton="true" navButtonPress=".onNavBackToDAHome">
         <content>
@@ -57,31 +57,6 @@ controllerName="commandearticle.controller.CASingle" displayBlock="true">
 
 				</layout:HorizontalLayout>
 			</ff:DynamicPageHeader>
-			 <!-- <ObjectHeader
-                id="_IDGenObjectHeader1"
-                title="Commande - #{NumCa}"
-                backgroundDesign="Solid"g
-            >
-                <attributes>
-                    <ObjectAttribute id="_IDGenObjectAttribute11" />
-                    <ObjectAttribute id="_IDGenObjectAttribute7" title="Demande d'Achat" active="true" text="{DemandeAchat}" press="alert('Hello')"/>
-                    <ObjectAttribute id="_IDGenObjectAttribute1" title="Créé par" active="true" text="{Utulisateur}"/>
-                    <ObjectAttribute id="_IDGenObjectAttribute2" title="Date de création" active="true" text="{Datecreation}" />
-                    <ObjectAttribute id="_IDGenObjectAttribute5" title="Date de Livraison Souhaitée" active="true"  text="{DatelivraisonSouh}" />
-                    <ObjectAttribute id="_IDGenObjectAttribute3" title="Commentaire" active="true" text="{Commantaire}" />
-                    <ObjectAttribute id="_IDGenObjectAttribute4" title="Fournisseur" active="true" text="{Fournisseur}" />
-                </attributes>
-                <statuses>
-                    <ObjectStatus
-                        id="_IDGenObjectStatus1"
-                        class="sapUiSmallMarginBottom"
-                        text="{= ${Supprimé} === 'X' ? 'Rejetée' : ${Statut} === 'X' ? 'Validée' : 'En cours'}"
-                        inverted="true"
-                        icon="{= ${Supprimé} === 'X' ? 'sap-icon://delete' : ${Statut} === 'X' ? 'sap-icon://accept' : 'sap-icon://pending'}"
-                        state="{= ${Supprimé} === 'X' ? 'Error' : ${Statut} === 'X' ? 'Success' : 'Information'}"
-                    />
-                </statuses>
-            </ObjectHeader> -->
 			<!-- Header of the page - Title info - End -->
 
             <!-- Tabs for DA Items - Start -->
