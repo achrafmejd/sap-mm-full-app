@@ -81,30 +81,31 @@ sap.ui.define(
                 ],
               })
             );
+
+            // // Check if the DA has CA
+            // that.getOwnerComponent().getModel().read('/CommandeSet', {
+            //   success: function(oData){
+            //     // 
+            //     if(oData.results.length){
+            //       console.log(oData.results);
+            //       const hasCA = oData.results.filter((da)=>da.DemandeAchat == JSON.parse(oSelectedItem).DemandeAchat).length > 0
+            //       console.log(hasCA);
+            //       if(hasCA){
+            //         that.getView().byId('_ButtonConvertDA').setVisible(false)
+            //       }
+            //     }
+            //   },  
+            //   error: function(oErr){
+            //     console.log(oErr);
+            //   }
+            // })
           },
           error: function (oError) {
             console.log(oError);
           },
         });
 
-        // // Check if the DA has CA
-        // // Check if the DA has CA
-        // this.getOwnerComponent().getModel().read('/CommandeSet', {
-        //   success: function(oData){
-        //     // 
-        //     if(oData.results.length){
-        //        console.log(oData.results);
-        //        const hasCA = oData.results.filter((da)=>da.DemandeAchat == JSON.parse(oSelectedItem).DemandeAchat).length > 0
-        //        console.log(hasCA);
-        //        if(hasCA){
-        //          that.getView().byId('_ButtonConvertDA').setVisible(false)
-        //        }
-        //     }
-        //   },  
-        //   error: function(oErr){
-        //     console.log(oErr);
-        //   }
-        // })
+        
       },
       _onGetDialogContent: function (DAArticles) {
         // Get the Model for Getting ARTFRN Entityset
