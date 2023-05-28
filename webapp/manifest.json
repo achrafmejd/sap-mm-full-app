@@ -85,6 +85,9 @@
           },
           {
             "uri": "css/vendors.css"
+          },
+          {
+            "uri": "css/home.css"
           }
       ]
     },

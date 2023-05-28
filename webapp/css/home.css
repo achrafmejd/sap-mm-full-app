@@ -1,0 +1,4 @@
+/* Overriding the Styles of the Title in the View Home */
+.sapUiVltCell.sapuiVltCell {
+    margin: 1em 0 1em 1em;
+}

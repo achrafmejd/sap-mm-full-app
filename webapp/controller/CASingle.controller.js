@@ -33,7 +33,7 @@ sap.ui.define([
                 const oModel = this.getOwnerComponent().getModel();
                 // Prepare the filters array
                 const aFilter = [];
-                console.log(JSON.parse(oSelectedItem).DemandeAchat);
+                console.log(JSON.parse(oSelectedItem).NumCa);
                 aFilter.push(
                   new Filter(
                     "NumCa",
@@ -80,13 +80,16 @@ sap.ui.define([
                             text: "{CodeArticle}",
                           }),
                           new sap.m.Text({
-                            text: "{Designation}",
+                            text: "{Commantaire}",
                           }),
                           new sap.m.Text({
                             text: "{Qte} {UniteMesure}",
                           }),
                           new sap.m.Text({
                             text: "{PuConvenu} {DevisePu}",
+                          }),
+                          new sap.m.Text({
+                            text: "{Montant} {Unit}",
                           }),
                         ],
                       })
@@ -490,5 +493,15 @@ sap.ui.define([
                 // Open the Dialog - First time after executing the function
                 oDialog.open();
               },
+              formatDate: function(dateValue) {
+                // Convert the date value to a Date object
+                var date = new Date(dateValue);
+          
+                // Format the date to the desired format (e.g., "dd-MM-yyyy")
+                var formattedDate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+          
+                // Return the formatted date
+                return formattedDate;
+              }
         });
     });

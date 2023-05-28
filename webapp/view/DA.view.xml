@@ -20,7 +20,7 @@
                </content>
             </OverflowToolbar>
             <!-- First toolbar for Title and Search - End -->
-            <Table id="_IDGenTable1" items="{/DemandeSet}" alternateRowColors="true">
+            <Table id="_IDGenTable1" items="{/}" alternateRowColors="true">
                <!-- Table Header - Start -->
                <headerToolbar>
                   <OverflowToolbar id="_IDGenOverflowToolbar1">
@@ -69,10 +69,10 @@
                         </cells>
                         <cells>
                            <ObjectStatus id="_IDGenObjectStatus2"
-                              text="{= ${Status} === ' V' ? 'Validée' : 'En cours'}"
+                              text="{= ${Status} === 'X' ? 'Validée' : 'En cours'}"
                               inverted="true"
-                              icon="{= ${Status} === ' V' ? 'sap-icon://accept' : 'sap-icon://pending'}"
-                              state="{= ${Status} === ' V' ? 'Success' : 'Information'}" />
+                              icon="{= ${Status} === 'X' ? 'sap-icon://accept' : 'sap-icon://pending'}"
+                              state="{= ${Status} === 'X' ? 'Success' : 'Information'}" />
                         </cells>
                 </ColumnListItem>
             </Table>

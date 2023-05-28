@@ -34,19 +34,19 @@
                <!-- Table Columns - Start -->
                <columns>
                   <Column id="Id">
-                     <Text id="_IDGenText1" text="Numéro de Commande d'achat" />
+                     <Text id="_IDGenText1" text="Commande d'achat" />
                   </Column>
                   <Column id="DAIdentiant" width="">
-                     <Text id="_IDGenTextDAT" text="Numéro de Demmande d'achat" />
+                     <Text id="_IDGenTextDAT" text="Demmande d'achat" />
                   </Column>
                   <Column id="Garage">
-                     <Text id="_IDGenText8" text="Créé par" />
+                     <Text id="_IDGenText8" text="Utilisateur" />
                   </Column>
                   <Column id="Ascenseur">
                      <Text id="_IDGenText9" text="Date de création" />
                   </Column>
                   <Column id="Climatisation" width="">
-                     <Text id="_IDGenText10" text="Commentaire" />
+                     <Text id="_IDGenText10" text="Date de Livraison" />
                   </Column>
                   <Column id="PrixNuitee">
                      <Text id="_IDGenText11" text="Statut" />
@@ -67,17 +67,33 @@
                            state="Information" />
                         </cells>
                         <cells>
-                            <Text id="_IDGenText1111" class="_IDGenText13_id" text="{Datecreation}" /> 
+                           <ObjectStatus 
+                              id="_IDGenText1111"
+                              text="{path: 'Datecreation', type: 'sap.ui.model.type.Date', formatOptions: {pattern: 'dd-MM-yyyy'}}"
+                              inverted="true"
+                              icon="sap-icon://select-appointments"
+                              state="Success"
+
+                           />
+                            <!-- <Text id="_IDGenText1111" class="_IDGenText13_id" text="{path: 'Datecreation', type: 'sap.ui.model.type.Date', formatOptions: {pattern: 'dd-MM-yyyy'}}"/>  -->
                         </cells>
-                        <cells> 
-                            <Text id="_IDGenText122" class="_IDGenText13_id" text="{Commantaire}" />
+                        <cells>
+                           <ObjectStatus 
+                              id="_IDGenText122"
+                              text="{path: 'DatelivraisonSouh', type: 'sap.ui.model.type.Date', formatOptions: {pattern: 'dd-MM-yyyy'}}"
+                              inverted="true"
+                              icon="sap-icon://waiver"
+                              state="Warning"
+
+                           />
+                           <!-- <Text id="_IDGenText122" class="_IDGenText13_id" text="{path: 'DatelivraisonSouh', type: 'sap.ui.model.type.Date', formatOptions: {pattern: 'dd-MM-yyyy'}}" /> -->
                         </cells>
                         <cells>
                            <ObjectStatus id="_IDGenObjectStatus2"
-                              text="{= ${Supprimé} === 'X' ? 'Rejetée' : ${Statut} === 'X' ? 'Validée' : 'En cours'}"
+                              text="{= ${Statut} === 'X' ? 'Validée' : 'En cours'}"
                               inverted="true"
-                              icon="{= ${Supprimé} === 'X' ? 'sap-icon://delete' : ${Statut} === 'X' ? 'sap-icon://accept' : 'sap-icon://pending'}"
-                              state="{= ${Supprimé} === 'X' ? 'Error' : ${Statut} === 'X' ? 'Success' : 'Information'}" />
+                              icon="{= ${Statut} === 'X' ? 'sap-icon://accept' : 'sap-icon://pending'}"
+                              state="{= ${Statut} === 'X' ? 'Success' : 'Information'}" />
                         </cells>
                 </ColumnListItem>
             </Table>

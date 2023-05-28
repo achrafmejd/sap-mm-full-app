@@ -14,18 +14,13 @@ sap.ui.define([
     return BaseController.extend("commandearticle.controller.List", {
 
         formatter: formatter,
-
-        /* =========================================================== */
-        /* lifecycle methods                                           */
-        /* =========================================================== */
-
-        /**
-         * Called when the list controller is instantiated. It sets up the event handling for the list/detail communication and other lifecycle tasks.
-         * @public
-         */
         onInit : function () {
-          this.getView().byId("commButton").setVisible(false);
-
+            this.getView().byId("commButton").setVisible(false);
+            // Initialize the List Selection 
+            const list = this.getView().byId("list");
+            if(list.getSelectedItems()){
+              list.setSelectedItem([])
+            }
             // Control state model
             var oList = this.byId("list"),
                 oViewModel = this._createViewModel(),
@@ -112,7 +107,7 @@ sap.ui.define([
                   that._onAddedPost(oModel, remainingElements[0], remainingElements);
                 }else{
                     sap.m.MessageBox.show(
-                      "Traitement terminé avec succès ! Vous allez être redirigé vers la page d'acceuil",
+                      "Traitement terminé avec succès !",
                       {
                         icon: sap.m.MessageBox.Icon.INFORMATION,
                         title: "Confirmation",
@@ -125,7 +120,9 @@ sap.ui.define([
                             console.log("Redirect to new Page");
                             const oRouter = sap.ui.core.UIComponent.getRouterFor(that);
                             if (oRouter) {
+                              oRouter.navTo("list", {}, true);
                                 oRouter.navTo("home", {}, true);
+                                window.location.reload()
                             } else {
                                 alert("Error in routing : Navigation TO Articles !\nCheck console");
                             }
@@ -144,6 +141,7 @@ sap.ui.define([
             const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             console.log(oRouter);
             if (oRouter) {
+                oRouter.navTo('list')
                 oRouter.navTo("home");
             } else {
                 alert("Error in routing : Navigation TO DA !\nCheck console");
@@ -170,52 +168,50 @@ sap.ui.define([
     
               var oDialog = new sap.m.Dialog({
                 title: "Confirmation des Articles",
-                icon: "sap-icon://home",
+                icon: "sap-icon://list",
                 contentWidth: "40%",
                 content: selectedItemsArray.map((item, index) => {
                   if (selectedItems){
                     console.log(selectedItems);
                   }
                   var itemId = `${item.CodeArticle}`;
-                    return new sap.m.Panel({
-                      headerText: `Article - ${item.CodeArticle}`,
-                      content: [
-                        new sap.m.Label({
-                          id: `LB-${itemId}`,
-                          showColon: true,
-                          text: "Designation",
-                        }),
-                        new sap.m.Text({
-                          id: `TA-${itemId}`,
-                          width: "100%",
-                          text: item.Designation,
-                        }),
-                        new sap.m.Label({
-                          id: `LB2-${itemId}`,
-                          showColon: true,
-                          text: "Prix standard",
-                        }),
-                        new sap.m.Text({
-                          id: `TA2-${itemId}`,
-                          width: "100%",
-                          text: `${item.PrixStandard} ${item.Devise}`,
-                        }),
-                        new sap.m.Label({
-                          id: `LB3-${itemId}`,
-                          showColon: true,
-                          text: "Quantité souhaité",
-                        }),
-                        new sap.m.Input({
-                          id: `In-${itemId}`,
-                          type: sap.m.InputType.Number,
-                          min: 0,
-                          valueState: sap.ui.core.ValueState.Error,
-                          valueStateText: "The value must be non-negative"
-                        }),
-                      ],
-                    });
-                  }
-                  ),
+                  return new sap.m.Panel({
+                    headerText: `Article - ${item.CodeArticle}`,
+                    content: [
+                      new sap.m.Label({
+                        id: `LB-${itemId}`,
+                        showColon: true,
+                        text: "Designation",
+                      }),
+                      new sap.m.Text({
+                        id: `TA-${itemId}`,
+                        width: "100%",
+                        text: item.Designation,
+                      }),
+                      new sap.m.Label({
+                        id: `LB2-${itemId}`,
+                        showColon: true,
+                        text: "Prix standard",
+                      }),
+                      new sap.m.Text({
+                        id: `TA2-${itemId}`,
+                        width: "100%",
+                        text: `${item.PrixStandard} ${item.Devise}`,
+                      }),
+                      new sap.m.Label({
+                        id: `LB3-${itemId}`,
+                        showColon: true,
+                        text: "Quantité souhaité",
+                      }),
+                      new sap.m.StepInput({
+                        id : `In-${itemId}`,
+                        min: 1,
+                        width: '100%',
+                        textAlign : 'Center'
+                      })
+                    ],
+                  });
+                }),
                 beginButton: new sap.m.Button({
                   text: "Confirmer",
                   type: "Accept",
@@ -248,7 +244,7 @@ sap.ui.define([
                     });
 
                     //Insertion des postes demandes
-
+                    console.log('########################### LOGS ###########################');
                     console.log(demande_header);
                     console.log(itemsWithQuantity);
 

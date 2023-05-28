@@ -8,12 +8,13 @@
     padding: 0.5em;
 }
 
-.sapMGT {
+/* Below is a conflicting CSS Style */
+/* .sapMGT {
    
     box-shadow: 0 0 0.125rem 0 rgba(85,107,130,0.16), 0 0.125rem 0.25rem 0 rgba(85,107,130,0.16);
     width: 9em!important;
     height: 9em!important;
-}
+} */
 
 .sapMTextMaxLine {
     display: block;
@@ -35,12 +36,13 @@
     display: inline-block;
 }
 
-.sapMGTHdrContent {
+/* Below is a conflicting CSS Style */
+/* .sapMGTHdrContent {
     height: 3.1rem;
     padding-top: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
-}
+} */
 
 .sapMTileCntFtrTxt {
     overflow: hidden;
