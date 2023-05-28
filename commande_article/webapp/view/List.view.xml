@@ -1,0 +1,105 @@
+<mvc:View
+    xmlns:f="sap.f"
+    controllerName="commandearticle.controller.List"
+    xmlns="sap.m"
+    xmlns:semantic="sap.f.semantic"
+    xmlns:mvc="sap.ui.core.mvc">
+
+    <semantic:SemanticPage
+        id="listPage"
+        preserveHeaderStateOnScroll="true"
+        toggleHeaderOnTitleClick="false">
+        <semantic:titleHeading>
+            <Title
+                id="listPageTitle"
+                text="{listView>/title}"
+                level="H2"/>
+        </semantic:titleHeading>
+        <semantic:content>
+            <!-- For client side filtering add this to the items attribute: parameters: {operationMode: 'Client'}}" -->
+            <List
+                id="list"
+                width="auto"
+                class="sapFDynamicPageAlignContent"
+                items="{
+                    path: '/ArticleeSet',
+                    sorter: {
+                        path: 'CodeArticle',
+                        descending: false
+                    },
+                    groupHeaderFactory: '.createGroupHeader'
+                }"
+                busyIndicatorDelay="{listView>/delay}"
+                noDataText="{listView>/noDataText}"
+                mode="MultiSelect"
+                growing="true"
+                growingScrollToLoad="true"
+                updateFinished=".onUpdateFinished"
+                selectionChange=".onSelectionChange">
+
+                <infoToolbar>
+                    <Toolbar
+                        active="true"
+                        id="filterBar"
+                        visible="{listView>/isFilterBarVisible}"
+                        press=".onOpenViewSettings">
+                        <Title
+                            id="filterBarLabel"
+                            text="{listView>/filterBarLabel}"
+                            level="H3"/>
+                    </Toolbar>
+                </infoToolbar>
+
+                <headerToolbar>
+                    <OverflowToolbar id="_IDGenOverflowToolbar1">
+                        <SearchField
+                            id="searchField"
+                            showRefreshButton="true"
+                            tooltip="{i18n>listSearchTooltip}"
+                            search=".onSearch"
+                            width="auto">
+                            <layoutData>
+                                <OverflowToolbarLayoutData id="_IDGenOverflowToolbarLayoutData1"
+                                    minWidth="150px"
+                                    maxWidth="240px"
+                                    shrinkable="true"
+                                    priority="NeverOverflow"/>
+                            </layoutData>
+                        </SearchField>
+                        <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+                        <Button
+                            id="sortButton"
+                            press=".onOpenViewSettings"
+                            icon="sap-icon://sort"
+                            type="Transparent"/>
+
+                        <Button
+                            id="filterButton"
+                            press=".onOpenViewSettings"
+                            icon="sap-icon://filter"
+                            type="Transparent"/>
+                        <Button
+                            id="groupButton"
+                            press=".onOpenViewSettings"
+                            icon="sap-icon://group-2"
+                            type="Transparent"/>
+
+                         <Button
+                            id="commButton"
+                            text="commander"
+                            press=".onCommander"
+                            type="Transparent"/>
+
+                    </OverflowToolbar>
+                </headerToolbar>
+                <items>
+                    <ObjectListItem id="_IDGenObjectListItem1"
+                        type="Navigation"
+                        press=".onSelectionChange"
+                        title="{Designation}"
+                        />
+                </items>
+            </List>
+        </semantic:content>
+    </semantic:SemanticPage>
+</mvc:View>

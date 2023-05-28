@@ -1,0 +1,197 @@
+<mvc:View xmlns:f="sap.f"
+    controllerName="commandearticle.controller.Detail"
+    xmlns="sap.m"
+    xmlns:semantic="sap.f.semantic"
+    xmlns:layout="sap.ui.layout"
+    xmlns:su="sap.suite.ui.microchart"
+    xmlns:mvc="sap.ui.core.mvc">
+
+    <semantic:SemanticPage
+        id="detailPage"
+        busy="{detailView>/busy}"
+        headerExpanded="false"
+        busyIndicatorDelay="{detailView>/delay}">
+        <semantic:titleHeading>
+            <Title id="_IDGenTitle1"
+                text="{CodeArticle}"
+                level="H2"/>
+        </semantic:titleHeading>
+        <semantic:headerContent>
+            <layout:HorizontalLayout id="_IDGenHorizontalLayout1" allowWrapping="true">
+				<layout:VerticalLayout id="_IDGenVerticalLayout2">
+                    <Image id="_IDGenImage1" src="{= '../images/' + ${ImageArticle} }" width="100px"/>
+                </layout:VerticalLayout>
+                <layout:VerticalLayout id="_IDGenVerticalLayout3" class="sapUiLargeMarginBegin">
+                    <ObjectAttribute id="_IDGenObjectAttribute2" title="{i18n>Designation}"/>
+                    <ObjectIdentifier id="_IDGenObjectIdentifier1" title="{Designation}" />
+                    <ObjectAttribute id="_IDGenObjectAttribute3" title="{i18n>Crée Par}"/>
+                    <ObjectIdentifier id="_IDGenObjectIdentifier2" title="{CreePar}" />
+                    <ObjectAttribute id="_IDGenObjectAttribute4" title="{i18n>Date de Création}"/>
+                    <ObjectIdentifier id="_IDGenObjectIdentifier3" title="{DateCreation}" />
+                    <ObjectAttribute id="_IDGenObjectAttribute5" title="{i18n>Price}"/>
+                    <ObjectIdentifier id="_IDGenObjectIdentifier4" title="{PrixStandard} {Devise}" />
+                </layout:VerticalLayout>
+                <layout:VerticalLayout id="_IDGenVerticalLayout1" class="sapUiLargeMarginBegin">
+					<ObjectAttribute id="_IDGenObjectAttribute6" title="Availability"/>
+		    		<ObjectStatus id="_IDGenObjectStatus1" text="In Stock" icon="sap-icon://sys-enter-2"
+		        	state="Success"/>  
+				</layout:VerticalLayout>      
+            </layout:HorizontalLayout> 
+        </semantic:headerContent>
+        <semantic:content>
+            <layout:HorizontalLayout id="_IDGenHorizontalLayout11" allowWrapping="true">
+                <layout:VerticalLayout id="_IDGenVerticalLayout4">
+                    <ObjectAttribute id="_IDGenObjectAttribute7" title="{i18n>Supplier Name}"/>
+                    <Link id="_IDGenObjectIdentifier6" text="Becker Berlin" />
+                    <ObjectAttribute id="_IDGenObjectAttribute71" class="sapUiSmallMarginTop" title="{i18n>Rating}"/>
+                    <RatingIndicator id="RI_default" maxValue="5" class="sapUiSmallMarginBottom" value="4" tooltip="Rating Tooltip" />
+                </layout:VerticalLayout>
+				<layout:VerticalLayout id="_IDGenVerticalLayout21" class="sapUiLargeMarginBegin">
+                    <ObjectAttribute id="_IDGenObjectAttribute41" title="{i18n>Company Name}"/>
+                    <ObjectIdentifier id="_IDGenObjectIdentifier41" title="Inetum Buisness Solutions" />
+                    <ObjectAttribute id="_IDGenObjectAttribute31" title="{i18n>Phone}" class="sapUiSmallMarginTop"/>
+                    <Link id="_IDGenObjectIdentifier31" text="+493088530" />
+                    <ObjectAttribute id="_IDGenObjectAttribute32" title="{i18n>Fax}"/>
+                    <Link id="_IDGenObjectIdentifier32" text="+493088004" />
+                    <ObjectAttribute id="_IDGenObjectAttribute33" title="{i18n>Site Web}"/>
+                    <Link id="_IDGenObjectIdentifier33" text="https://www.inetum.com/fr/maroc" href="https://www.inetum.com/fr/maroc" />
+                </layout:VerticalLayout>
+                <layout:VerticalLayout id="_IDGenVerticalLayout22" class="sapUiSmallMarginTop">
+                <Table
+                        id="idProductsTable"
+                        inset="false"
+                        class="sapFSemanticPageAlignContent"
+                        width="auto"
+                        items="{/}"
+                        >
+
+                        <columns>
+                            <Column id="_IDGenColumn1">
+                                <Text id="_IDGenText1" text="Fournisseur"/>
+                                
+                            </Column>
+                            <Column id="_IDGenColumn11">
+                                <Text id="_IDGenText5" text="Prix Achat"/>
+                            </Column>
+                            <Column id="_IDGenColumn12">
+                                <Text id="_IDGenText6" text="Devise"/>
+                            </Column>
+                            <Column id="_IDGenColumn13">
+                                <Text id="_IDGenText7" text="Qte"/>
+                            </Column>
+                            <Column id="_IDGenColumn14">
+                                <Text id="_IDGenText8" text="Unité"/>
+                            </Column>
+                        </columns>
+
+                        <items>
+                            <ColumnListItem id="_IDGenColumnListItem1" vAlign="Middle">
+                                <cells> 
+                                    <Text id="_IDGenText4" text="{Fournisseur}"/>
+                                    <Text id="_IDGenText9" text="{PrixAchat}"/>
+                                    <Text id="_IDGenText11" text="{Devise}"/>
+                                    <Text id="_IDGenText12" text="{Quantite}"/>
+                                    <Text id="_IDGenText13" text="{Unite}"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                    </layout:VerticalLayout>
+                </layout:HorizontalLayout>
+                	
+        </semantic:content>
+        <!--Semantic ShareMenu Buttons-->
+        <semantic:sendEmailAction>
+            <semantic:SendEmailAction
+                id="shareEmail"
+                press=".onSendEmailPress"/>
+        </semantic:sendEmailAction>
+
+        <semantic:closeAction>
+            <semantic:CloseAction
+                    id="closeColumn"
+                    press=".onCloseDetailPress"/>
+        </semantic:closeAction>
+
+        <semantic:fullScreenAction>
+            <semantic:FullScreenAction
+                    id="enterFullScreen"
+                    visible="{= !${device>/system/phone} &amp;&amp; !${appView>/actionButtonsInfo/midColumn/fullScreen}}"
+                    press=".toggleFullScreen"/>
+        </semantic:fullScreenAction>
+        <semantic:exitFullScreenAction>
+            <semantic:ExitFullScreenAction
+                    id="exitFullScreen"
+                    visible="{= !${device>/system/phone} &amp;&amp; ${appView>/actionButtonsInfo/midColumn/fullScreen}}"
+                    press=".toggleFullScreen"/>
+        </semantic:exitFullScreenAction>
+        <semantic:titleMainAction>
+			<semantic:TitleMainAction id="_IDGenTitleMainAction1" text="Edit"/>
+		</semantic:titleMainAction>
+
+		<semantic:addAction>
+			<semantic:AddAction id="_IDGenAddAction1" />
+		</semantic:addAction>
+
+		<semantic:deleteAction>
+			<semantic:DeleteAction id="_IDGenDeleteAction1" />
+		</semantic:deleteAction>
+
+		<semantic:copyAction>
+			<semantic:CopyAction id="_IDGenCopyAction1" />
+		</semantic:copyAction>
+
+		
+
+		<semantic:favoriteAction>
+			<semantic:FavoriteAction id="_IDGenFavoriteAction1" />
+		</semantic:favoriteAction>
+
+		<semantic:flagAction>
+			<semantic:FlagAction id="_IDGenFlagAction1" />
+		</semantic:flagAction>
+
+		<!-- Custom Title Icon Content-->
+		<semantic:titleCustomIconActions>
+			<OverflowToolbarButton id="_IDGenOverflowToolbarButton1" icon="sap-icon://cart" text="cart" />
+		</semantic:titleCustomIconActions>
+
+		 <!--Semantic ShareMenu Buttons-->
+		<semantic:discussInJamAction>
+			<semantic:DiscussInJamAction id="_IDGenDiscussInJamAction1" />
+		</semantic:discussInJamAction>
+
+		<semantic:shareInJamAction>
+			<semantic:ShareInJamAction id="_IDGenShareInJamAction1" />
+		</semantic:shareInJamAction>
+
+		<semantic:printAction>
+			<semantic:PrintAction id="_IDGenPrintAction1" />
+		</semantic:printAction>
+
+		<semantic:sendMessageAction>
+			<semantic:SendMessageAction id="_IDGenSendMessageAction1" />
+		</semantic:sendMessageAction>
+
+		<!-- Semantic Footer Buttons -->
+		<semantic:positiveAction>
+			<semantic:PositiveAction id="_IDGenPositiveAction1" />
+		</semantic:positiveAction>
+
+		<semantic:negativeAction>
+			<semantic:NegativeAction id="_IDGenNegativeAction1" />
+		</semantic:negativeAction>
+
+		<semantic:messagesIndicator>
+			<semantic:MessagesIndicator id="_IDGenMessagesIndicator1" press="onMessagesButtonPress"/>
+		</semantic:messagesIndicator>
+
+		<!-- Custom Footer Content-->
+		<semantic:footerCustomActions>
+			<Button id="_IDGenButton6" text="Save" />
+			<Button id="_IDGenButton7" text="Cancel" />
+		</semantic:footerCustomActions>
+
+    </semantic:SemanticPage>
+
+</mvc:View>
