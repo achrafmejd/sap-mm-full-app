@@ -163,6 +163,8 @@ sap.ui.define([
               }
               
               const that = this;
+
+              //THAT INSTEAD OF THIS
     
               console.log(selectedItemsArray);
     
