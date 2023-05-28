@@ -24,6 +24,8 @@ sap.ui.define([
          * @public
          */
         onInit : function () {
+          this.getView().byId("commButton").setVisible(false);
+
             // Control state model
             var oList = this.byId("list"),
                 oViewModel = this._createViewModel(),
@@ -57,6 +59,7 @@ sap.ui.define([
                 aFilter : [],
                 aSearch : []
             };
+
 
             this.setModel(oViewModel, "listView");
             // Make sure, busy indication is showing immediately so there is no
@@ -139,6 +142,7 @@ sap.ui.define([
         },
         onNavigateToHome: function(){
             const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            console.log(oRouter);
             if (oRouter) {
                 oRouter.navTo("home");
             } else {
@@ -150,7 +154,7 @@ sap.ui.define([
             var list = this.getView().byId("list");
             var selectedItems = list.getSelectedItems();
             var selectedItemsArray = [];
-            if (selectedItems) {
+            if (selectedItems.length!= 0) {
               console.log("IN");
               console.log(selectedItems);
               for (var i = 0; i < selectedItems.length; i++) {
@@ -169,45 +173,49 @@ sap.ui.define([
                 icon: "sap-icon://home",
                 contentWidth: "40%",
                 content: selectedItemsArray.map((item, index) => {
+                  if (selectedItems){
+                    console.log(selectedItems);
+                  }
                   var itemId = `${item.CodeArticle}`;
-                  return new sap.m.Panel({
-                    headerText: `Article - ${item.CodeArticle}`,
-                    content: [
-                      new sap.m.Label({
-                        id: `LB-${itemId}`,
-                        showColon: true,
-                        text: "Designation",
-                      }),
-                      new sap.m.Text({
-                        id: `TA-${itemId}`,
-                        width: "100%",
-                        text: item.Designation,
-                      }),
-                      new sap.m.Label({
-                        id: `LB2-${itemId}`,
-                        showColon: true,
-                        text: "Prix standard",
-                      }),
-                      new sap.m.Text({
-                        id: `TA2-${itemId}`,
-                        width: "100%",
-                        text: `${item.PrixStandard} ${item.Devise}`,
-                      }),
-                      new sap.m.Label({
-                        id: `LB3-${itemId}`,
-                        showColon: true,
-                        text: "Quantité souhaité",
-                      }),
-                      new sap.m.Input({
-                        id: `In-${itemId}`,
-                        type: sap.m.InputType.Number,
-                        min: 0,
-                        valueState: sap.ui.core.ValueState.Error,
-                        valueStateText: "The value must be non-negative"
-                      }),
-                    ],
-                  });
-                }),
+                    return new sap.m.Panel({
+                      headerText: `Article - ${item.CodeArticle}`,
+                      content: [
+                        new sap.m.Label({
+                          id: `LB-${itemId}`,
+                          showColon: true,
+                          text: "Designation",
+                        }),
+                        new sap.m.Text({
+                          id: `TA-${itemId}`,
+                          width: "100%",
+                          text: item.Designation,
+                        }),
+                        new sap.m.Label({
+                          id: `LB2-${itemId}`,
+                          showColon: true,
+                          text: "Prix standard",
+                        }),
+                        new sap.m.Text({
+                          id: `TA2-${itemId}`,
+                          width: "100%",
+                          text: `${item.PrixStandard} ${item.Devise}`,
+                        }),
+                        new sap.m.Label({
+                          id: `LB3-${itemId}`,
+                          showColon: true,
+                          text: "Quantité souhaité",
+                        }),
+                        new sap.m.Input({
+                          id: `In-${itemId}`,
+                          type: sap.m.InputType.Number,
+                          min: 0,
+                          valueState: sap.ui.core.ValueState.Error,
+                          valueStateText: "The value must be non-negative"
+                        }),
+                      ],
+                    });
+                  }
+                  ),
                 beginButton: new sap.m.Button({
                   text: "Confirmer",
                   type: "Accept",
@@ -432,15 +440,13 @@ sap.ui.define([
                 bSelected = oEvent.getParameter("selected");
                 console.log('onSelectionChange');
                 
-                console.log(bSelected);
-                
-                
             // skip navigation when deselecting an item in multi selection mode
             if (!(!oList.getMode() === "MultiSelect" && !bSelected)) {
                 // get the list item, either from the listItem parameter or from the event's source itself (will depend on the device-dependent mode).
                 this._showDetail(oEvent.getParameter("listItem") || oEvent.getSource());
-                // this.getView().byId('commButton').setEnabled(true)
+                
             }
+            this.getView().byId("commButton").setVisible(true);
         },
         /**
          * Event handler for the bypassed event, which is fired when no routing pattern matched.
@@ -506,6 +512,7 @@ sap.ui.define([
          */
         _showDetail: function (oItem) {
             var bReplace = !Device.system.phone;
+            //console.log(commBtn);
             // set the layout property of FCL control to show two columns
             this.getModel("appView").setProperty("/layout", "TwoColumnsMidExpanded");
             this.getRouter().navTo("object", {
